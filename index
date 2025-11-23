@@ -1,0 +1,2578 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phần Mềm Tính Lương Paradise HR</title>
+    <meta name="description"
+        content="Paradise HR | Phần mềm tính lương cho doanh nghiệp & nhà máy sản xuất. Tự động hóa chấm công, tính lương. Đồng hành cùng 500+ doanh nghiệp">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-150px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .scroll-animate {
+            opacity: 0;
+            transform: translateX(-150px);
+            transition: opacity 0.3s ease;
+        }
+
+        .scroll-animate.show {
+            animation: slideInLeft 0.8s ease forwards;
+        }
+
+        @keyframes bounceInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-200px);
+            }
+
+            60% {
+                opacity: 1;
+                transform: translateX(30px);
+            }
+
+            80% {
+                transform: translateX(-10px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .feature-line {
+            opacity: 0;
+        }
+
+        .feature-line.show {
+            animation: bounceInLeft 0.8s ease forwards;
+        }
+
+
+        .main-title {
+            font-size: 46px;
+            font-weight: bold;
+            line-height: 1.4;
+            color: rgb(10, 74, 37);
+
+        }
+
+        .content-wrapper {
+            background: white;
+            border-radius: 20px;
+            padding: 60px;
+
+        }
+
+        .left-section {
+            position: relative;
+            height: 500px;
+        }
+
+        .company-logo {
+
+            margin-bottom: -50px;
+        }
+
+        .company-logo img {
+            max-width: 300px;
+            height: auto;
+        }
+
+        .testimonial-box {
+
+            position: relative;
+            overflow: hidden;
+            height: 50%;
+            max-width: 59%;
+
+            border-width: 5px;
+            border-radius: 27px;
+            border-style: solid;
+            border-color: rgb(0, 0, 0);
+            background-color: rgb(244, 253, 224);
+        }
+
+        .testimonial-content {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            padding: 15px;
+            opacity: 0;
+            /* Tăng thời gian hoạt ảnh lên 50s (10s/item) để tránh chồng chéo */
+            animation: slideTestimonial 50s infinite;
+            display: flex;
+            gap: 35px;
+            align-items: flex-start;
+        }
+
+        .testimonial-content:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .testimonial-content:nth-child(2) {
+            animation-delay: 10s;
+            /* 50s / 5 items = 10s delay mỗi item */
+        }
+
+        .testimonial-content:nth-child(3) {
+            animation-delay: 20s;
+        }
+
+        .testimonial-content:nth-child(4) {
+            animation-delay: 30s;
+        }
+
+        .testimonial-content:nth-child(5) {
+            animation-delay: 40s;
+        }
+
+
+        @keyframes slideTestimonial {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            2% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            18% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            20% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+        }
+
+        .testimonial-left {
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .avatar-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid #1e7b4d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .avatar-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-name {
+            font-weight: bold;
+            font-size: 1rem;
+
+            text-align: center;
+        }
+
+        .testimonial-position {
+            font-size: 0.85rem;
+            color: #666;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .testimonial-right {
+            flex: 1;
+        }
+
+        .testimonial-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #333;
+            text-align: justify;
+        }
+
+        .bottom-text {
+            margin-top: 20px;
+            font-size: 25.24px;
+            font-weight: bold;
+            line-height: 1.4;
+            color: rgb(10, 74, 37);
+            text-align: left;
+            display: inline-block;
+            /* để đường gạch dài theo nội dung */
+            position: relative;
+            padding-bottom: 25px;
+        }
+
+        .bottom-text::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            /* độ dài gạch, muốn full thì để 100% */
+
+            border-bottom: 3px solid rgb(0, 0, 0);
+            border-left: 0px !important;
+        }
+
+        .right-section {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 0;
+        }
+
+        .phone-container {
+            position: relative;
+            left: -50%;
+            margin: 0 auto;
+        }
+
+        .phone-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .review-card {
+            position: absolute;
+            background: white;
+            border-radius: 12px;
+            padding: 15px 18px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            animation: float 3s ease-in-out infinite;
+            max-width: 320px;
+        }
+
+        .review-card-1 {
+            top: 5%;
+            right: -25%;
+            animation-delay: 0s;
+        }
+
+        .review-card-2 {
+            top: 35%;
+            right: -20%;
+            animation-delay: 1s;
+        }
+
+        .review-card-3 {
+            bottom: 5%;
+            right: -15%;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .review-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .review-text {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .review-card {
+                display: none;
+            }
+
+            .main-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        .big-img {
+            width: 100%;
+            height: auto;
+        }
+
+        .logos-box {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-between;
+            /* 3 hàng cao bằng hình bên trái */
+        }
+
+        .logo-item {
+            width: 75%;
+            object-fit: contain;
+        }
+
+        :root {
+            --primary-green: #0a4a25;
+            --primary-orange: #F1613A;
+            --bg-light-green: #faffef;
+            --gray-text: #545454;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+            /* ĐÃ XÓA padding-left/right khỏi body */
+        }
+
+        /* --- Typography & Colors --- */
+        .text-green {
+            color: var(--primary-green) !important;
+        }
+
+        .text-orange {
+            color: var(--primary-orange) !important;
+        }
+
+        .bg-green {
+            background-color: var(--primary-green) !important;
+        }
+
+        h2,
+        h3 {
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        /* --- Buttons (Đã bỏ viền trắng) --- */
+        .btn-demo {
+            background-color: var(--primary-orange);
+            color: #fff;
+            border-radius: 50px;
+            padding: 12px 35px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: none;
+            /* BỎ VIỀN TRẮNG THEO YÊU CẦU */
+            box-shadow: 0 5px 15px rgba(241, 97, 58, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-demo:hover {
+            background-color: #d64b25;
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(241, 97, 58, 0.6);
+        }
+
+        /* --- Sections Styles --- */
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        /* --- Laptop: thu nhỏ nhưng giữ hình vuông --- */
+        @media (max-width: 1199px) and (min-width: 768px) {
+            .custom-box {
+                width: 30%;
+                height: auto;
+                aspect-ratio: 1 / 1;
+                /* giữ hình vuông */
+                padding: 15px;
+            }
+
+            .box-title {
+                font-size: 18px;
+            }
+
+            .box-text {
+                font-size: 14px;
+            }
+
+            .left-img {
+                width: 100%;
+                height: auto;
+            }
+
+            .custom-grid {
+                height: auto;
+                min-height: 400px;
+                /* tùy chỉnh để vừa các box */
+            }
+        }
+
+        /* --- Mobile: xếp cột, vẫn giữ hình vuông --- */
+        @media (max-width: 767px) {
+            .row.justify-content-center.align-items-center {
+                flex-direction: column;
+            }
+
+            .col-md-6,
+            .col-lg-5 {
+                width: 100%;
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .left-img {
+                width: 80%;
+                height: auto;
+                margin-bottom: 20px;
+            }
+
+            .custom-grid {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: auto;
+                gap: 15px;
+            }
+
+            .custom-box {
+                width: 50%;
+                aspect-ratio: 1 / 1;
+                /* giữ hình vuông */
+                padding: 15px;
+                position: static;
+                margin-bottom: 15px;
+            }
+
+            .box-title {
+                font-size: 16px;
+            }
+
+            .box-text {
+                font-size: 14px;
+            }
+        }
+
+        .bg-pale {
+            background-color: var(--bg-light-green);
+        }
+
+        /* --- Card & Boxes --- */
+        .pain-point-box {
+            background: #fff;
+            padding: 30px 20px;
+            border-radius: 10px;
+            border: 2px solid var(--primary-green);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .pain-point-box:hover {
+            transform: translateY(-5px);
+        }
+
+
+
+        /* --- FAQ Accordion --- */
+        .accordion-button:not(.collapsed) {
+            color: var(--primary-green);
+            background-color: rgba(10, 74, 37, 0.1);
+            font-weight: bold;
+
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(10, 74, 37, 0.1);
+
+        }
+
+        .accordion-button {
+            font-size: 24px;
+            border-width: 2px;
+            border-radius: 10px;
+            border-style: solid;
+            border-color: rgb(0, 0, 0);
+        }
+
+        /* --- Form --- */
+        .register-form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            border: 2px solid var(--primary-green);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control,
+        .form-select {
+            background-color: #f0f5f2;
+            border: none;
+            padding: 12px;
+            margin-bottom: 15px;
+        }
+
+        /* --- Animations Custom Classes --- */
+        .scroll-hidden {
+            opacity: 0;
+        }
+
+        .bounce-loop {
+            animation: bounce 3s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-20px);
+            }
+
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .hero-content-bg {
+            position: relative;
+            padding: 50px 40px;
+            border-radius: 20px;
+            overflow: hidden;
+            /* tránh ảnh tràn */
+        }
+
+        /* ảnh nền dưới cùng */
+        .hero-bg-img {
+            position: absolute;
+            bottom: -88%;
+            left: -20%;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* nội dung đặt lên trên */
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            /* trên */
+        }
+
+        .hero-image-left {
+            margin-bottom: 20%;
+            width: 135%;
+            max-width: none;
+            position: relative;
+            left: 10%
+        }
+
+        /* Mobile */
+        @media (max-width: 991px) {
+            .hero-content-bg {
+                padding: 30px 20px;
+                margin-top: 40px;
+            }
+
+            .hero-image-left {
+                width: 120%;
+                left: -10%;
+            }
+        }
+
+
+        /* Trên mobile thì điều chỉnh lại cho vừa màn hình */
+        @media (max-width: 991px) {
+            .hero-content-bg {
+                background-size: cover;
+                padding: 30px 20px;
+                margin-top: 40px;
+            }
+
+            .hero-image-left {
+                width: 120%;
+                /* Mobile thì nhỏ lại xíu kẻo tràn màn hình */
+                left: -10%;
+            }
+        }
+
+        .ladi-image-background {
+            width: 1805.48px;
+            height: 1127.18px;
+        }
+
+        .hero-title {
+            font-size: 42.5px;
+            font-weight: 700;
+            color: #0b5430;
+            text-align: center;
+            margin-bottom: 2%;
+            margin-top: 30px;
+        }
+
+        .left-img {
+            width: 120%;
+            height: 100%;
+
+        }
+
+        .feature-box {
+            border: 2px solid #0b5430;
+            border-radius: 12px;
+            padding: 20px;
+            background: white;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0b5430;
+            margin-bottom: 8px;
+        }
+
+        .feature-text {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .custom-grid {
+            position: relative;
+            width: 100%;
+            height: 650px;
+        }
+
+        .custom-box {
+            position: absolute;
+            border: 2px solid #0b5430;
+            border-radius: 14px;
+            padding: 20px 15px;
+            background: #ffffff;
+            width: 32%;
+            /* to hơn */
+
+            text-align: center;
+            box-shadow: 0 8px 0 rgba(11, 84, 48, 0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* căn giữa icon/title/text */
+            justify-content: flex-start;
+        }
+
+        .box-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background: #0b5430;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            box-shadow: 0 6px 0 rgba(11, 84, 48, 0.06);
+        }
+
+        .box-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .box-text {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.45;
+            text-align: center;
+            padding: 0 5px;
+        }
+
+        @media (max-width: 767px) {
+            .hero-title {
+                font-size: 26px;
+            }
+
+            .custom-box {
+                width: 90%;
+                position: static;
+                margin-bottom: 20px;
+            }
+        }
+
+        .feature-item {
+            display: flex;
+
+
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            line-height: 1;
+            /* fix chữ bị lệch dọc */
+        }
+
+        .feature-item img {
+            width: 65px;
+            height: 41px;
+            object-fit: contain;
+            display: block;
+            /* tránh bị dư baseline */
+        }
+
+        .icon-check {
+            width: 80px;
+            /* to hơn */
+            height: 40px;
+            flex-shrink: 0;
+        }
+
+        .feature-line h5 {
+            font-size: 1.25rem;
+            /* to chữ hơn */
+
+
+        }
+
+        /* ====================================
+   RESPONSIVE CHO LAPTOP (992px - 1199px)
+   ==================================== */
+
+        /* --- HERO SECTION - LAPTOP --- */
+        @media (max-width: 1199px) and (min-width: 992px) {
+            .hero-content-bg {
+                padding: 40px 30px;
+                min-height: 650px;
+            }
+
+            .hero-image-left {
+                width: 120%;
+                left: 5%;
+                margin-bottom: 15%;
+            }
+
+            .hero-title {
+                font-size: 36px;
+                margin-bottom: 20px;
+            }
+
+            h2.text-orange.fw-bold {
+                font-size: 22px;
+            }
+
+            .hero-inner p {
+                font-size: 20px;
+            }
+
+            .btn-demo {
+                padding: 10px 28px;
+                font-size: 13px;
+            }
+        }
+
+        /* --- CUSTOMER LOGOS - LAPTOP --- */
+        @media (max-width: 1199px) and (min-width: 992px) {
+            .text-orange.fw-bold {
+                font-size: 30px;
+            }
+
+            .row.justify-content-center.align-items-center img {
+                max-width: 60%;
+            }
+        }
+
+        /* --- GIẢI PHÓNG NHÂN SỰ SECTION - LAPTOP --- */
+        @media (max-width: 1199px) and (min-width: 992px) {
+            .left-img {
+                width: 110%;
+            }
+
+            .custom-grid {
+                height: 550px;
+            }
+
+            .custom-box {
+                width: 30%;
+                padding: 15px 12px;
+            }
+
+            .box-title {
+                font-size: 17px;
+            }
+
+            .box-text {
+                font-size: 14px;
+            }
+
+            .box-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .box-icon img {
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        /* --- GIẢI PHÁP TÍNH LƯƠNG (2 HÌNH) - LAPTOP --- */
+        @media (max-width: 1199px) and (min-width: 992px) {
+            section.py-3[style*="margin-bottom: -25%"] img {
+                max-width: 90%;
+            }
+        }
+
+        /* --- CÁC FEATURE SECTIONS - LAPTOP --- */
+        @media (max-width: 1199px) and (min-width: 992px) {
+            .feature-item {
+                font-size: 20px;
+                margin-bottom: 25px;
+            }
+
+            .feature-item img {
+                width: 55px;
+                height: 35px;
+            }
+        }
+
+        /* --- TRẢI QUA 16+ NĂM SECTION - LAPTOP --- */
+        @media (max-width: 1199px) and (min-width: 992px) {
+            .text-green.fw-bold.ladi-transition {
+                font-size: 40px;
+            }
+
+            .logos-box .logo-item {
+                width: 70%;
+            }
+        }
+
+        /* --- KHÁCH HÀNG NÓI GÌ SECTION - LAPTOP --- */
+        @media (max-width: 1199px) and (min-width: 992px) {
+            .main-title {
+                font-size: 38px;
+            }
+
+            .testimonial-box {
+                max-width: 65%;
+            }
+
+            .bottom-text {
+                font-size: 22px;
+            }
+        }
+
+        /* --- FORM ĐĂNG KÝ SECTION - LAPTOP --- */
+        @media (max-width: 1199px) and (min-width: 992px) {
+            .register-form h3 {
+                font-size: 20px;
+            }
+
+            .feature-line h4 {
+                font-size: 20px;
+            }
+        }
+
+        /* --- FAQ SECTION - LAPTOP --- */
+        @media (max-width: 1199px) and (min-width: 992px) {
+            .accordion-button {
+                font-size: 20px;
+            }
+        }
+
+
+        /* ====================================
+   RESPONSIVE CHO MOBILE (dưới 768px)
+   ==================================== */
+
+        /* --- HERO SECTION - MOBILE --- */
+        @media (max-width: 767px) {
+            .hero-inner .col-lg-6.offset-lg-1 {
+        order: 1;
+        width: 100%;
+        offset: 0;
+    }
+
+            .hero-content-bg {
+                padding: 30px 15px;
+                min-height: auto;
+            }
+
+            .hero-bg-img {
+                display: none;
+            }
+
+            .row.align-items-center {
+                flex-direction: column-reverse;
+            }
+
+            .hero-image-left {
+                width: 100%;
+                left: 0;
+                margin-bottom: 30px;
+            }
+
+            .hero-inner .ms-3 {
+                margin-left: 0 !important;
+            }
+
+            .hero-inner img[alt="Logo"] {
+        max-width: 150px;
+        margin-bottom: 25px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+            .hero-title {
+                font-size: 28px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            h2.text-orange.fw-bold.bounce-loop {
+                font-size: 20px;
+                text-align: center;
+            }
+
+            .hero-inner div[style*="width: 637px"] {
+                width: 100% !important;
+            }
+
+            .hero-inner p {
+                font-size: 16px;
+                text-align: center;
+            }
+
+            .mt-5.d-flex.gap-3 {
+                flex-direction: column;
+                gap: 15px !important;
+                margin-top: 30px !important;
+            }
+
+            .btn-demo {
+                width: 100%;
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+
+            .hero-content-bg .row.align-items-center {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+            /* Logo đầu tiên */
+            .hero-inner img[alt="Logo"] {
+                order: 1;
+                max-width: 150px;
+                margin-bottom: 25px;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+           .hero-inner h1.text-green {
+        font-size: 26px !important;
+        text-align: center;
+        margin-bottom: 25px;
+        line-height: 1.3 !important;
+    }
+
+            /* Hình ảnh thứ 3 */
+           .hero-content-bg .col-lg-5 {
+        order: 2 !important; /* Đẩy hình xuống sau title */
+        width: 100%;
+        margin-bottom: 25px;
+    }
+            .hero-image-left {
+                width: 90% !important;
+                left: 0 !important;
+                margin: 0 auto;
+                display: block;
+            }
+
+            /* Subtitle thứ 4 */
+            .hero-inner h2.text-orange {
+        font-size: 20px !important;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+  .hero-inner div[style*="width: 637px"] {
+        width: 100% !important;
+        padding: 0 15px;
+    }
+
+         .hero-inner div[style*="width: 637px"] p {
+        font-size: 16px !important;
+        text-align: center;
+        margin-bottom: 25px !important;
+    }
+
+           .hero-inner .mt-5.d-flex.gap-3 {
+        flex-direction: row !important;
+        gap: 10px !important;
+        margin-top: 25px !important;
+        justify-content: center;
+        padding: 0 15px;
+    }
+ .hero-inner .mt-5.d-flex.gap-3 .btn-demo {
+        width: 48%;
+        padding: 12px 10px;
+        font-size: 13px;
+        text-align: center;
+    }
+    
+    /* Reset animate để không bị conflict */
+    .hero-content-bg .animate__animated {
+        animation: none !important;
+    }
+    
+    /* Đảm bảo container cha không bị lệch */
+    .hero-content-bg {
+        padding: 30px 0;
+        min-height: auto !important;
+    }
+    
+    .hero-bg-img {
+        display: none;
+    }
+        }
+
+        /* --- CUSTOMER LOGOS - MOBILE --- */
+        @media (max-width: 767px) {
+            .text-orange.fw-bold.mt-4.mb-4 {
+                font-size: 22px;
+                padding: 0 10px;
+            }
+
+            .row.justify-content-center.align-items-center.g-6 {
+                gap: 20px !important;
+            }
+
+            .row.justify-content-center.align-items-center.g-6 img {
+                max-width: 70%;
+            }
+        }
+
+        /* --- GIẢI PHÓNG NHÂN SỰ SECTION - MOBILE --- */
+        @media (max-width: 767px) {
+            .hero-title {
+                font-size: 24px;
+                padding: 0 10px;
+                line-height: 1.4;
+            }
+
+            .row.justify-content-center.align-items-center.mt-5 {
+                flex-direction: column;
+            }
+
+            .col-md-6.text-center {
+                margin-bottom: 30px;
+            }
+
+            .left-img {
+                width: 100%;
+                height: auto;
+            }
+
+            .custom-grid {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: auto;
+                gap: 20px;
+            }
+
+            .custom-box {
+                position: static !important;
+                width: auto !important;
+                /* Thay vì 90% */
+                max-width: 55%;
+                /* Giới hạn tối đa */
+                margin: 0 auto 15px auto;
+                /* Căn giữa */
+                padding: 15px 20px !important;
+          
+               
+            }
+
+            .custom-grid {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                /* Căn giữa các box */
+                height: auto;
+                gap: 15px;
+            }
+
+            .box-title {
+                font-size: 17px;
+                margin-bottom: 10px;
+                white-space: nowrap;
+                /* Giữ text trên 1 hàng */
+            }
+
+            .box-text {
+                font-size: 14px;
+                line-height: 1.4;
+            }
+
+            .box-icon {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 10px;
+            }
+
+            .box-icon img {
+                width: 45px !important;
+                height: 45px !important;
+            }
+        }
+
+        @media (max-width: 767px) {
+
+            /* Tất cả button "Đăng ký demo" đều căn giữa */
+            .d-flex .btn-demo {
+                display: block;
+                margin: 0 auto;
+                /* Căn giữa */
+                width: auto;
+                padding: 12px 30px;
+            }
+
+            /* Ẩn div spacing bên trái button */
+            .d-flex .me-3.flex-shrink-0 {
+                display: none;
+            }
+
+            /* Container của button căn giữa */
+            .section-padding .d-flex:has(.btn-demo) {
+                justify-content: center;
+                width: 100%;
+            }
+        }
+
+        /* --- GIẢI PHÁP TÍNH LƯƠNG (2 HÌNH) - MOBILE --- */
+        @media (max-width: 767px) {
+            section.py-3[style*="margin-bottom: -25%"] {
+                margin-bottom: 0 !important;
+            }
+
+            section.py-3[style*="margin-bottom: -25%"] .row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            section.py-3[style*="margin-bottom: -25%"] .col-6 {
+                width: 100%;
+                margin-left: 0 !important;
+                margin-bottom: 20px;
+            }
+
+            section.py-3[style*="margin-bottom: -25%"] img {
+                max-width: 90%;
+            }
+        }
+
+        /* --- TÍNH LƯƠNG TỰ ĐỘNG HEADER - MOBILE --- */
+        @media (max-width: 767px) {
+            h3.hero-title {
+                font-size: 22px;
+                padding: 0 15px;
+            }
+
+            h3.ladi-headline.ladi-transition {
+                font-size: 16px;
+                padding: 0 15px;
+            }
+        }
+
+        /* --- CÁC FEATURE SECTIONS (HÌNH + TEXT) - MOBILE --- */
+        @media (max-width: 767px) {
+            .section-padding.bg-pale.px-6 .row.align-items-center {
+                flex-direction: column;
+            }
+
+            .section-padding.bg-pale.px-6 .col-lg-6 {
+                width: 100%;
+                padding: 0 15px;
+            }
+
+            .section-padding.bg-pale.px-6 .image-wrapper img {
+                width: 100% !important;
+            }
+
+            .section-padding.bg-pale.px-6 .img-overlay {
+                position: relative !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 70% !important;
+                margin: 20px auto 0;
+                display: block;
+            }
+
+            .feature-item {
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+
+            .feature-item img {
+                width: 50px;
+                height: 32px;
+            }
+
+            .feature-item div:last-child {
+                line-height: 1.5;
+            }
+
+            .d-flex .btn-demo {
+                width: 100%;
+            }
+
+            .d-flex .me-3 {
+                display: none;
+            }
+        }
+
+        /* --- SECTION PADDING MOBILE --- */
+        @media (max-width: 767px) {
+            .section-padding {
+                padding: 40px 0;
+            }
+        }
+
+        /* --- TRẢI QUA 16+ NĂM SECTION - MOBILE --- */
+        @media (max-width: 767px) {
+            .section-padding.bg-pale.px-6 .row.align-items-start {
+                flex-direction: column;
+            }
+
+            .section-padding.bg-pale.px-6 .col-lg-6 {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
+            h3.text-green.fw-bold.ladi-transition {
+                font-size: 24px;
+                text-align: center;
+            }
+
+            .big-img {
+                max-width: 90%;
+                margin: 20px auto;
+                display: block;
+            }
+
+            .logos-box {
+                justify-content: center;
+            }
+
+            .logos-box .col-6 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .logo-item {
+                width: 80%;
+                max-width: 150px;
+            }
+        }
+
+        /* --- KHÁCH HÀNG NÓI GÌ SECTION - MOBILE --- */
+        @media (max-width: 767px) {
+            .content-wrapper {
+                padding: 30px 15px;
+            }
+
+            .content-wrapper .row {
+                flex-direction: column;
+            }
+
+            .left-section {
+                height: auto;
+                margin-bottom: 30px;
+            }
+
+            .main-title {
+                font-size: 24px;
+            }
+
+            .company-logo {
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            .company-logo img {
+                max-width: 200px;
+            }
+
+            .testimonial-box {
+                max-width: 100%;
+                height: auto;
+                min-height: 300px;
+            }
+
+            .testimonial-content {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px 15px;
+            }
+
+            .testimonial-left {
+                width: 100%;
+                text-align: center;
+            }
+
+            .testimonial-right {
+                width: 100%;
+            }
+
+            .testimonial-text {
+                font-size: 14px;
+                text-align: left;
+            }
+
+            .bottom-text {
+                font-size: 18px;
+                text-align: center;
+                padding-bottom: 20px;
+            }
+
+            .right-section {
+                padding: 20px 0;
+            }
+
+            .phone-container {
+                left: 0;
+                width: 100%;
+            }
+
+            .phone-image {
+                max-width: 80%;
+                margin: 0 auto;
+                display: block;
+            }
+
+            .review-card {
+                display: none;
+            }
+        }
+
+        /* --- FORM ĐĂNG KÝ SECTION - MOBILE --- */
+        @media (max-width: 767px) {
+            section.section-padding.bg-pale.px-6#form-dang-ky .row.align-items-center {
+                flex-direction: column;
+            }
+
+            section.section-padding.bg-pale.px-6#form-dang-ky .col-lg-7 {
+                width: 100%;
+                padding: 0 15px;
+                margin-bottom: 40px;
+            }
+
+            section.section-padding.bg-pale.px-6#form-dang-ky h2 {
+                font-size: 24px;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            section.section-padding.bg-pale.px-6#form-dang-ky .d-flex.align-items-start {
+                flex-direction: column;
+                align-items: center !important;
+            }
+
+            section.section-padding.bg-pale.px-6#form-dang-ky .me-4 {
+                margin-right: 0 !important;
+                margin-bottom: 20px;
+                width: 100%;
+                text-align: center;
+            }
+
+            section.section-padding.bg-pale.px-6#form-dang-ky .me-4 img {
+                width: 80%;
+                max-width: 300px;
+            }
+
+            section.section-padding.bg-pale.px-6#form-dang-ky .d-flex.flex-column {
+                margin-top: 0 !important;
+            }
+
+            .feature-line {
+                margin-bottom: 20px;
+            }
+
+            .feature-line h4 {
+                font-size: 16px;
+            }
+
+            .icon-check {
+                width: 60px;
+                height: 30px;
+            }
+
+            section.section-padding.bg-pale.px-6#form-dang-ky .col-lg-4 {
+                width: 100%;
+                padding: 0 15px;
+            }
+
+            .register-form {
+                margin-right: 0 !important;
+                padding: 25px 20px;
+            }
+
+            .register-form h3 {
+                font-size: 20px;
+            }
+
+            .form-control,
+            .form-select {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+
+        /* --- FAQ SECTION - MOBILE --- */
+        @media (max-width: 767px) {
+            .section-padding h2.text-center {
+                font-size: 22px;
+                padding: 0 15px;
+            }
+
+            .accordion-button {
+                font-size: 16px;
+                padding: 15px;
+            }
+
+            .accordion-body {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        }
+
+        /* --- FOOTER - MOBILE --- */
+        @media (max-width: 767px) {
+
+            footer p,
+            footer small {
+                font-size: 14px;
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="section-padding bg-pale hero-content-bg" style="min-height: 800px;">
+        <div class="container-fluid">
+            <img class="hero-bg-img"
+                src="https://w.ladicdn.com/s2150x1450/691149f809bce700133947b0/thiet-ke-chua-co-ten-20251110033809-3nbag.png"
+                alt="BG">
+
+            <div class=" hero-inner">
+                <div class="row align-items-center">
+                    <div class="col-lg-5 mb-5 mb-lg-0">
+                        <div class="position-relative animate__animated animate__fadeInLeft">
+                            <img src="https://w.ladicdn.com/s1300x900/691149f809bce700133947b0/paradise-hr-20251110065304-bdwxi.png"
+                                alt="Paradise HR Dashboard" class="hero-image-left">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 offset-lg-1 text-center text-lg-start">
+                        <div class="ms-3">
+                            <div class="animate__animated animate__fadeInRight">
+                                <img src="https://w.ladicdn.com/s450x350/691149f809bce700133947b0/logo-paradisehr-20251110022638-t_mcx.jpg"
+                                    alt="Logo" class="mb-5" style="max-width: 218px; mix-blend-mode: multiply;">
+
+                                <h1 class="text-green fw-bolder display-4 mb-4"
+                                    style="line-height: 1.2; font-size:42px">
+                                    Phần Mềm Tính Lương Paradise HR
+                                </h1>
+
+                                <h2 class="text-orange fw-bold bounce-loop mb-4" style="font-size:26px">
+                                    Chính xác tuyệt đối, tự động hóa 100%
+                                </h2>
+
+                                <div style="width: 637px;">
+                                    <p class="mb-5" style="font-size: 24px; opacity: 0.9;">
+                                        Paradise HR | Phần mềm tính lương cho doanh nghiệp & nhà máy sản xuất. Tự động
+                                        hóa
+                                        chấm công, tính lương, chính xác 100%. Đồng hành cùng 500+ doanh nghiệp
+
+                                    </p>
+                                </div>
+
+                                <div class="mt-5 d-flex gap-3 justify-content-center justify-content-lg-start">
+                                    <a href="#form-dang-ky" class="btn btn-demo shadow-sm" style="font-size:14px">Đăng
+                                        kí
+                                        DEMO</a>
+                                    <a href="#" class="btn btn-demo shadow-sm" style="font-size:14px">Báo giá</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-3">
+        <div class="container-fluid px-4">
+            <div class="text-center">
+                <p class="text-orange fw-bold mt-4 mb-4" style="font-size: 36.5px;">Được tin tưởng sử dụng bởi 500+
+                    doanh
+                    nghiệp,
+                    nhà máy sản xuất tại Việt Nam</p>
+                <div style="" class=" row justify-content-center align-items-center g-6 opacity-75">
+                    <div class="col-6 col-md-2"><img
+                            src="https://w.ladicdn.com/s450x350/691149f809bce700133947b0/customer2-20251110034011-kaeys.png"
+                            class="" style="max-width:55%;height: auto;"></div>
+                    <div class="col-6 col-md-2"><img
+                            src="https://w.ladicdn.com/s500x350/691149f809bce700133947b0/customer5-20251110034011-bnixa.png"
+                            class="" style="max-width: 55%;height: auto;"></div>
+                    <div class="col-6 col-md-2"><img
+                            src="https://w.ladicdn.com/s600x350/691149f809bce700133947b0/customer8-20251110034011-iuyhi.png"
+                            class="" style="max-width: 55%;height: auto;"></div>
+                    <div class="col-6 col-md-2"><img
+                            src="https://w.ladicdn.com/s450x350/691149f809bce700133947b0/customer7-20251110034011-c6ol6.png"
+                            class="" style="max-width: 55%;height: auto;"></div>
+                    <div class="col-6 col-md-2"><img
+                            src="https://w.ladicdn.com/s500x450/691149f809bce700133947b0/customer6-20251110034011-7dstj.png"
+                            class="" style="max-width: 55%;height: auto;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background-color: var(--bg-light-green);">
+        <div class="container-fluid px-4">
+            <h2 class="hero-title">Giải phóng nhân sự khỏi công việc thủ công với<br>Phần Mềm Tính Lương Paradise HR.
+            </h2>
+
+            <div class="row justify-content-center align-items-center mt-5">
+                <div class="col-md-6 text-center">
+                    <img src="https://w.ladicdn.com/s1200x900/691149f809bce700133947b0/paradise-hr-7-20251111044840-fite1.png"
+                        class="left-img" />
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="custom-grid">
+                        <div class="custom-box" style="top: 0; left: 0;">
+                            <div class="box-title">Tiết kiệm thời gian</div>
+                            <div class="box-icon"><img
+                                    src="https://w.ladicdn.com/s400x400/691149f809bce700133947b0/4-20251110095059-j6a28.png"
+                                    style="width: 54px;height: 54px;" alt=""></div>
+                            <div class="box-text">Giảm 90% thời gian tính lương hàng tháng</div>
+                        </div>
+
+                        <div class="custom-box" style="top: 40%;left: 3%;">
+                            <div class="box-title">Chính xác tuyệt đối</div>
+                            <div class="box-icon"><img
+                                    src="https://w.ladicdn.com/s400x400/691149f809bce700133947b0/5-20251110095059-ie_a4.png"
+                                    style="width: 54px;height: 54px;" alt=""></div>
+                            <div class="box-text">Loại bỏ 100% sai sót do tính toán thủ công</div>
+                        </div>
+
+                        <div class="custom-box" style="top: 12%;left: 37%;">
+                            <div class="box-title">Hỗ trợ 24/7 </div>
+                            <div class="box-icon"><img
+                                    src="https://w.ladicdn.com/s400x400/691149f809bce700133947b0/3-20251110095059-uouqu.png"
+                                    style="width: 54px;height: 54px;" alt=""></div>
+                            <div class="box-text">Đội ngũ chăm sóc khách hàng tận tâm</div>
+                        </div>
+
+                        <div class="custom-box" style="top: 60%;left: 37%;">
+                            <div class="box-title">Minh bạch tiền lương</div>
+                            <div class="box-icon"><img
+                                    src="https://w.ladicdn.com/s400x400/691149f809bce700133947b0/6-20251110095059-g3c7e.png"
+                                    style="width: 54px;height: 54px;" alt=""></div>
+                            <div class="box-text">Nhân viên tra cứu lương theo dõi công rõ ràng</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-3" style="margin-bottom: -25%;">
+        <div class="container-fluid px-4">
+            <div class="text-center">
+                <h2 class="hero-title" style="margin-bottom: 3% !important;">Giải pháp tính lương toàn diện – Tự động
+                    hóa từ
+                    chấm công đến phiếu lương</h2>
+                <div class=" row ">
+                    <div class="col-6 col-md-2" style="margin-left: 4%;"><img
+                            src="https://w.ladicdn.com/s1300x900/691149f809bce700133947b0/paradise-hr-16-20251111103155-f7xsb.png"
+                            class="scroll-animate"></div>
+                    <div class="col-6 col-md-2" style="margin-left: 25%;"><img
+                            src="https://w.ladicdn.com/s1300x900/691149f809bce700133947b0/paradise-hr-17-20251111103246-bbvtx.png"
+                            class="scroll-animate"></div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-3" style="background-color: var(--bg-light-green);">
+        <div class="container-fluid px-4">
+            <div class="text-center">
+                <h3 class="hero-title">Tính lương tự động, linh hoạt </h3>
+                <h3 style="font-weight: 100 !important;" class="ladi-headline ladi-transition">Thiết lập công thức linh
+                    hoạt và tính toán tự động dựa trên dữ
+                    liệu công, thưởng, phạt. Chính xác 100%</h3>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section-padding bg-pale px-6">
+        <div class="container-fluid px-4">
+            <div class="row align-items-center">
+
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="image-wrapper" style="position: relative; width: 100%;">
+                        <img src="https://w.ladicdn.com/s1150x850/691149f809bce700133947b0/paradise-hr-1-20251113022152-3elr5.png"
+                            data-anim="animate__fadeInLeft" style="width: 100%;">
+
+                        <img src="https://w.ladicdn.com/s900x700/691149f809bce700133947b0/paradise-hr-2-20251113022440-1bfjq.png"
+                            class="img-overlay" style="
+                            position: absolute;
+                            top:40%;
+                            left: -7%;
+                            width: 60%;
+                            z-index: 5;
+                           ">
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+
+                    <ul class="list-unstyled mb-4">
+
+                        <li class="feature-item d-flex align-items-start mb-5">
+                            <div class="flex-shrink-0">
+                                <img src="https://w.ladicdn.com/s400x350/691149f809bce700133947b0/paradise-hr-20-20251111225804-dshed.png"
+                                    alt="">
+                            </div>
+                            <div>
+                                Thiết lập công thức lương theo từng phòng ban, vị trí.
+                            </div>
+                        </li>
+
+                        <li class="feature-item d-flex align-items-start mb-5">
+                            <div class="flex-shrink-0">
+                                <img src="https://w.ladicdn.com/s400x350/691149f809bce700133947b0/paradise-hr-20-20251111225804-dshed.png"
+                                    alt="">
+                            </div>
+                            <div>
+                                Tự động tổng hợp dữ liệu công - tăng ca, thưởng – phạt, phụ cấp.
+                            </div>
+                        </li>
+
+                        <li class="feature-item d-flex align-items-start mb-5">
+                            <div class="flex-shrink-0">
+                                <img src="https://w.ladicdn.com/s400x350/691149f809bce700133947b0/paradise-hr-20-20251111225804-dshed.png"
+                                    alt="">
+                            </div>
+                            <div>
+                                Tính toán chính xác, giảm 99% sai sót thủ công.
+                            </div>
+                        </li>
+
+                    </ul>
+
+
+                    <div class="d-flex">
+                        <div class="me-3 flex-shrink-0" style="width:28px;"></div>
+                        <div>
+                            <a href="#form-dang-ky" class="btn btn-demo bounce-loop">
+                                ĐĂNG KÍ DEMO
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-3" style="background-color: var(--bg-light-green);">
+        <div class="container-fluid px-4">
+            <div class="text-center">
+                <h3 class="hero-title">Kết nối trực tiếp với hệ thống chấm công</h3>
+                <h3 style="font-weight: 100 !important;" class="ladi-headline ladi-transition">Kết nối trực tiếp với máy
+                    chấm công, tự động thu thập và đồng bộ
+                    dữ liệu, chốt lương nhanh hơn, chuẩn hơn, nhàn hơn.</h3>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-pale px-6">
+        <div class="container-fluid px-4">
+            <div class="row align-items-center">
+
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="image-wrapper" style="position: relative; width: 100%;">
+                        <img src="https://w.ladicdn.com/s1250x900/691149f809bce700133947b0/paradise-hr-27-20251112030124-8j534.png"
+                            data-anim="animate__fadeInLeft" style="width: 105%;">
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+
+                    <ul class="list-unstyled mb-4">
+
+                        <li class="feature-item d-flex align-items-start mb-5">
+                            <div class="flex-shrink-0">
+                                <img src="https://w.ladicdn.com/s400x350/691149f809bce700133947b0/paradise-hr-20-20251111225804-dshed.png"
+                                    alt="">
+                            </div>
+                            <div>
+                                Đồng bộ dữ liệu chấm công Real-time từ máy chấm công.
+                            </div>
+                        </li>
+
+                        <li class="feature-item d-flex align-items-start mb-5">
+                            <div class="flex-shrink-0">
+                                <img src="https://w.ladicdn.com/s400x350/691149f809bce700133947b0/paradise-hr-20-20251111225804-dshed.png"
+                                    alt="">
+                            </div>
+                            <div>
+                                Tự động chuẩn hóa dữ liệu công theo từng ca làm việc.
+                            </div>
+                        </li>
+
+                        <li class="feature-item d-flex align-items-start mb-5">
+                            <div class="flex-shrink-0">
+                                <img src="https://w.ladicdn.com/s400x350/691149f809bce700133947b0/paradise-hr-20-20251111225804-dshed.png"
+                                    alt="">
+                            </div>
+                            <div>
+                                Cảnh báo và đối soát dữ liệu công bất thường.
+                            </div>
+                        </li>
+
+                    </ul>
+
+
+                    <div class="d-flex">
+                        <div class="me-3 flex-shrink-0" style="width:28px;"></div>
+                        <div>
+                            <a href="#form-dang-ky" class="btn btn-demo bounce-loop">ĐĂNG KÍ DEMO</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <section class="py-3" style="background-color: var(--bg-light-green);">
+        <div class="container-fluid px-4">
+            <div class="text-center">
+                <h3 class="hero-title">Tự động áp dụng chính sách lương, thuế, BHXH
+                </h3>
+                <h3 style="font-weight: 100 !important;" class="ladi-headline ladi-transition">Tự động áp dụng các chính
+                    sách lương, thuế TNCN theo biểu lũy tiến
+                    và bảo hiểm xã hội (BHXH) mới nhất.</h3>
+
+            </div>
+        </div>
+    </section>
+    <section class="section-padding bg-pale px-6">
+        <div class="container-fluid px-4">
+            <div class="row align-items-center">
+
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="image-wrapper" style="position: relative; width: 100%;">
+                        <img src="https://w.ladicdn.com/s1100x800/691149f809bce700133947b0/paradise-hr-30-20251112061632-rvy9v.png"
+                            data-anim="animate__fadeInLeft" style="width: 105%;">
+
+
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+
+                    <ul class="list-unstyled mb-4">
+
+                        <li class="feature-item d-flex align-items-start mb-5">
+                            <div class="flex-shrink-0">
+                                <img src="https://w.ladicdn.com/s400x350/691149f809bce700133947b0/paradise-hr-20-20251111225804-dshed.png"
+                                    alt="">
+                            </div>
+                            <div>
+                                Đảm bảo tuân thủ pháp luật, giảm rủi ro sai lệch.
+                            </div>
+                        </li>
+
+                        <li class="feature-item d-flex align-items-start mb-5">
+                            <div class="flex-shrink-0">
+                                <img src="https://w.ladicdn.com/s400x350/691149f809bce700133947b0/paradise-hr-20-20251111225804-dshed.png"
+                                    alt="">
+                            </div>
+                            <div>
+                                Cập nhật biểu thuế TNCN và quy định BHXH định kỳ.
+                            </div>
+                        </li>
+
+                        <li class="feature-item d-flex align-items-start mb-5">
+                            <div class="flex-shrink-0">
+                                <img src="https://w.ladicdn.com/s400x350/691149f809bce700133947b0/paradise-hr-20-20251111225804-dshed.png"
+                                    alt="">
+                            </div>
+                            <div>
+                                Tự động khấu trừ và phân bổ chi phí bảo hiểm.
+                            </div>
+                        </li>
+
+                    </ul>
+
+
+                    <div class="d-flex">
+                        <div class="me-3 flex-shrink-0" style="width:28px;"></div>
+                        <div>
+                            <a href="#form-dang-ky" class="btn btn-demo bounce-loop">ĐĂNG KÍ DEMO</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <section class="py-3" style="background-color: var(--bg-light-green);">
+        <div class="container-fluid px-4">
+            <div class="text-center">
+                <h3 class="hero-title">Cập nhật phép và dữ liệu thời gian thực</h3>
+                <h3 style="font-weight: 100 !important;" class="ladi-headline ladi-transition">Theo dõi và cập nhật tồn
+                    phép liên tục, thông tin đầy đủ và minh
+                    bạch, hỗ trợ HR quản lý nhân viên hiệu quả.</h3>
+
+            </div>
+        </div>
+    </section>
+    <section class="section-padding bg-pale px-6">
+        <div class="container-fluid px-4">
+            <div class="row align-items-center">
+
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="image-wrapper" style="position: relative; width: 100%;">
+                        <img src="https://w.ladicdn.com/s1300x950/691149f809bce700133947b0/paradise-hr-33-20251112083013-3j2ar.png"
+                            data-anim="animate__fadeInLeft" style="width: 105%;">
+
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+
+                    <ul class="list-unstyled mb-4">
+
+                        <li class="feature-item d-flex align-items-start mb-5">
+                            <div class="flex-shrink-0">
+                                <img src="https://w.ladicdn.com/s400x350/691149f809bce700133947b0/paradise-hr-20-20251111225804-dshed.png"
+                                    alt="">
+                            </div>
+                            <div>
+                                Ghi nhận nghỉ phép, nghỉ ốm, nghỉ không lương.
+                            </div>
+                        </li>
+
+                        <li class="feature-item d-flex align-items-start mb-5">
+                            <div class="flex-shrink-0">
+                                <img src="https://w.ladicdn.com/s400x350/691149f809bce700133947b0/paradise-hr-20-20251111225804-dshed.png"
+                                    alt="">
+                            </div>
+                            <div>
+                                Tự động trừ phép và đồng bộ với bảng lương.
+                            </div>
+                        </li>
+
+                        <li class="feature-item d-flex align-items-start mb-5">
+                            <div class="flex-shrink-0">
+                                <img src="https://w.ladicdn.com/s400x350/691149f809bce700133947b0/paradise-hr-20-20251111225804-dshed.png"
+                                    alt="">
+                            </div>
+                            <div>
+                                Hiển thị số phép còn lại, giúp quản lý dễ theo dõi.
+                            </div>
+                        </li>
+
+                    </ul>
+
+                    <!-- Nút căn thẳng hàng text -->
+                    <div class="d-flex">
+                        <div class="me-3 flex-shrink-0" style="width:28px;"></div>
+                        <div>
+                            <a href="#form-dang-ky" class="btn btn-demo bounce-loop">ĐĂNG KÍ DEMO</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-3" style="background-color: var(--bg-light-green);">
+        <div class="container-fluid px-4">
+            <div class="text-center">
+                <h3 class="hero-title">Tổng hợp và xuất báo cáo lương, thưởng, thuế,
+                    BHXH</h3>
+                <h3 style="font-weight: 100 !important;" class="ladi-headline ladi-transition">Mọi báo cáo lương,
+                    thưởng, thuế, BHXH được tổng hợp và xuất tự
+                    động, nhanh chóng và chính xác tuyệt đối.</h3>
+
+            </div>
+        </div>
+    </section>
+    <section class="section-padding bg-pale px-6">
+        <div class="container-fluid px-4">
+            <div class="row align-items-center">
+
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="image-wrapper" style="position: relative; width: 100%;">
+                        <img src="https://w.ladicdn.com/s1150x850/691149f809bce700133947b0/paradise-hr-35-20251112090133-0i9nf.png"
+                            data-anim="animate__fadeInLeft" style="width:105%;">
+
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+
+                    <ul class="list-unstyled mb-4">
+
+                        <li class="feature-item d-flex align-items-start mb-5">
+                            <div class="flex-shrink-0">
+                                <img src="https://w.ladicdn.com/s400x350/691149f809bce700133947b0/paradise-hr-20-20251111225804-dshed.png"
+                                    alt="">
+                            </div>
+                            <div>
+                                Tạo nhanh báo cáo chuẩn theo mẫu cơ quan quản lý.
+                            </div>
+                        </li>
+
+                        <li class="feature-item d-flex align-items-start mb-5">
+                            <div class="flex-shrink-0">
+                                <img src="https://w.ladicdn.com/s400x350/691149f809bce700133947b0/paradise-hr-20-20251111225804-dshed.png"
+                                    alt="">
+                            </div>
+                            <div>
+                                Lọc, chỉnh sửa và xuất dữ liệu ra Excel/PDF.
+                            </div>
+                        </li>
+
+                        <li class="feature-item d-flex align-items-start mb-5">
+                            <div class="flex-shrink-0">
+                                <img src="https://w.ladicdn.com/s400x350/691149f809bce700133947b0/paradise-hr-20-20251111225804-dshed.png"
+                                    alt="">
+                            </div>
+                            <div>
+                                Lưu lịch sử báo cáo, dễ dàng truy xuất lại khi cần.
+                            </div>
+                        </li>
+
+                    </ul>
+
+                    <!-- Nút căn thẳng hàng văn bản -->
+                    <div class="d-flex">
+                        <div class="me-3 flex-shrink-0" style="width:28px;"></div>
+                        <div>
+                            <a href="#form-dang-ky" class="btn btn-demo bounce-loop">ĐĂNG KÍ DEMO</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <section class="py-3" style="">
+        <div class="container-fluid px-4">
+            <div class="text-center">
+                <h3 class="hero-title">Gửi phiếu lương tự động, minh bạch từng khoản thu nhập</h3>
+                <h3 style="font-weight: 100 !important;" class="ladi-headline ladi-transition">Gửi phiếu lương tự động
+                    và chi tiết (qua email/app/tin nhắn), minh
+                    bạch mọi khoản thu nhập, khấu trừ</h3>
+
+            </div>
+        </div>
+    </section>
+    <section class="section-padding">
+        <div class="container-fluid px-4">
+            <div class="row align-items-center">
+
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="image-wrapper" style="position: relative; width: 100%;">
+                        <img src="https://w.ladicdn.com/s1500x1050/691149f809bce700133947b0/paradise-hr-44-20251118072624-lrpyu.png"
+                            data-anim="animate__fadeInLeft">
+                    </div>
+                </div>
+
+                <div class="col-lg-6 ps-lg-5">
+
+                    <ul class="list-unstyled mb-4">
+
+                        <li class="feature-item d-flex align-items-start mb-5">
+                            <div class="flex-shrink-0">
+                                <img src="https://w.ladicdn.com/s400x350/691149f809bce700133947b0/paradise-hr-20-20251111225804-dshed.png"
+                                    alt="">
+                            </div>
+                            <div>Hiển thị chi tiết thu nhập, phụ cấp, khấu trừ, thuế.</div>
+                        </li>
+
+                        <li class="feature-item d-flex align-items-start mb-5">
+                            <div class="flex-shrink-0">
+                                <img src="https://w.ladicdn.com/s400x350/691149f809bce700133947b0/paradise-hr-20-20251111225804-dshed.png"
+                                    alt="">
+                            </div>
+                            <div>Tự động gửi phiếu lương qua email hoặc app.</div>
+                        </li>
+
+                        <li class="feature-item d-flex align-items-start mb-5">
+                            <div class="flex-shrink-0">
+                                <img src="https://w.ladicdn.com/s400x350/691149f809bce700133947b0/paradise-hr-20-20251111225804-dshed.png"
+                                    alt="">
+                            </div>
+                            <div>Lưu trữ và tra cứu dễ dàng theo từng kỳ lương.</div>
+                        </li>
+
+                    </ul>
+
+                    <div class="d-flex">
+                        <div class="me-3 flex-shrink-0" style="width:28px;"></div>
+                        <div>
+                            <a href="#form-dang-ky" class="btn btn-demo bounce-loop">ĐĂNG KÍ DEMO</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section-padding bg-pale px-6">
+        <div class="container-fluid px-4">
+            <div class="row align-items-start">
+
+                <div class="col-lg-6">
+                    <div class="text-start mb-4">
+                        <h3 class="text-green fw-bold ladi-transition" style="font-size: 50px;">
+                            Trải qua 16+ năm phát triển
+                        </h3>
+                        <h3 class="text-green fw-bold ladi-transition" style="font-size: 45px;">
+                            Chúng tôi đã đồng hành với hơn
+                        </h3>
+                    </div>
+
+                    <div class="mb-4">
+                        <img src="https://w.ladicdn.com/s1150x850/691149f809bce700133947b0/paradise-hr-8-20251116232311-lyzni.png"
+                            class="img-fluid big-img">
+                    </div>
+
+                    <button class="btn btn-demo bounce-loop fs-5 px-5 py-3">
+                        Câu chuyện khách hàng
+                    </button>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="row g-4 logos-box h-100">
+                        <div class="col-6">
+                            <img src="https://w.ladicdn.com/s650x500/691149f809bce700133947b0/paradise-hr-17-20251116232442-d-es2.png"
+                                class="img-fluid logo-item">
+                        </div>
+                        <div class="col-6">
+                            <img src="https://w.ladicdn.com/s750x600/691149f809bce700133947b0/paradise-hr-20-20251116232507-vjtmk.png"
+                                class="img-fluid logo-item">
+                        </div>
+
+
+                        <div class="col-6">
+                            <img src="https://w.ladicdn.com/s700x550/691149f809bce700133947b0/paradise-hr-26-20251116232739-b4ipm.png"
+                                class="img-fluid logo-item">
+                        </div>
+                        <div class="col-6">
+                            <img src="https://w.ladicdn.com/s600x500/691149f809bce700133947b0/paradise-hr-30-20251116233818-skzn7.png"
+                                class="img-fluid logo-item">
+                        </div>
+
+                        <div class="col-6">
+                            <img src="https://w.ladicdn.com/s600x400/691149f809bce700133947b0/customer2-20251110034011-kaeys.png"
+                                class="img-fluid logo-item">
+                        </div>
+                        <div class="col-6">
+                            <img src="https://w.ladicdn.com/s750x550/691149f809bce700133947b0/paradise-hr-25-20251116232620-19rnk.png"
+                                class="img-fluid logo-item">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="">
+        <div class="content-wrapper container-fluid">
+            <div class="row">
+                <div class="col-lg-6 left-section">
+                    <h2 class="main-title">Khách hàng nói gì về Paradise HR?</h2>
+                    <div class="company-logo">
+                        <img src="https://w.ladicdn.com/s650x550/691149f809bce700133947b0/paradise-hr-25-20251116232620-19rnk.png"
+                            alt="Steel Flower">
+                    </div>
+
+                    <div class="testimonial-box">
+                        <div class="testimonial-content">
+                            <div class="testimonial-left">
+                                <div class="avatar-circle">
+                                    <span style="font-size: 2rem;">👤</span>
+                                </div>
+                                <div class="testimonial-name">Nguyễn Thanh Hương</div>
+                                <div class="testimonial-position">Giám Đốc Nhân Sự<br>Manpower Việt Nam</div>
+                            </div>
+                            <div class="testimonial-right">
+                                <div class="testimonial-text">
+                                    "Phần mềm tính lương của Paradise HR đã giúp chúng tôi giảm đến 80% thời gian xử lý
+                                    bảng lương hàng tháng cho hơn 200 nhân sự và hàng ngàn nhân viên thuê ngoài. Hệ
+                                    thống rất linh hoạt với các quy tắc tính lương phức tạp. Đội ngũ Vietinsoft luôn hỗ
+                                    trợ sát sao và giải quyết mọi vấn đề nhanh chóng."
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-content">
+                            <div class="testimonial-left">
+                                <div class="avatar-circle">
+                                    <span style="font-size: 2rem;">👤</span>
+                                </div>
+                                <div class="testimonial-name">Tâm Phúc Nguyễn</div>
+                                <div class="testimonial-position">Trưởng phòng Vận hành<br>Adecco Việt Nam</div>
+                            </div>
+                            <div class="testimonial-right">
+                                <div class="testimonial-text">
+                                    "Trước đây, việc quản lý hàng ngàn nhân sự cho nhiều công ty khác nhau thực sự là
+                                    một cơn ác mộng, đặc biệt là công việc tính lương. Với Paradise HR, tỷ lệ sai sót
+                                    trong tính toán lương đã giảm xuống dưới 0.5%, giúp chúng tôi tiết kiệm được hàng
+                                    trăm giờ công kiểm tra lại mỗi tháng. Dịch vụ chăm sóc khách hàng cũng rất tận tâm,
+                                    Vietinsoft luôn sẵn sàng hỗ trợ khi chúng tôi cần điều chỉnh quy tắc tính lương
+                                    mới."
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-content">
+                            <div class="testimonial-left">
+                                <div class="avatar-circle">
+                                    <span style="font-size: 2rem;">👤</span>
+                                </div>
+                                <div class="testimonial-name">Bella Khan</div>
+                                <div class="testimonial-position">Director - HR Outsourcing<br>Links International</div>
+                            </div>
+                            <div class="testimonial-right">
+                                <div class="testimonial-text">
+                                    "Là một công ty chuyên tính lương thuê ngoài, tốc độ và độ chính xác là điều quan
+                                    trọng nhất. Phần mềm Paradise HR cho phép chúng tôi hoàn thành xử lý lương cho hàng
+                                    trăm khách hàng chỉ trong vài ngày làm việc, tăng 50% năng suất so với trước. Chúng
+                                    tôi cũng đánh giá cao sự chủ động, chuyên nghiệp của đội ngũ hỗ trợ kỹ thuật trong
+                                    suốt quá trình triển khai và vận hành hệ thống."
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-content">
+                            <div class="testimonial-left">
+                                <div class="avatar-circle">
+                                    <span style="font-size: 2rem;">👤</span>
+                                </div>
+                                <div class="testimonial-name">Huyền Vũ</div>
+                                <div class="testimonial-position">HR Manager<br>Steel Flower</div>
+                            </div>
+                            <div class="testimonial-right">
+                                <div class="testimonial-text">
+                                    "Việc tích hợp dữ liệu chấm công - tính lương phức tạp theo giờ đã trở nên đơn giản
+                                    hơn nhiều sau khi sử dụng phần mềm tính lương Paradise HR. Phần mềm giúp chúng tôi
+                                    đảm bảo tuân thủ 100% luật lao động hiện hành. Khi cần tuỳ chỉnh các công thức về
+                                    lương hay báo cáo đặc thù, Vietinsoft luôn hỗ trợ nhiệt tình, hướng dẫn chi tiết và
+                                    triển khai nhanh chóng, mang lại trải nghiệm rất hài lòng về dịch vụ khách hàng."
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-content">
+                            <div class="testimonial-left">
+                                <div class="avatar-circle">
+                                    <span style="font-size: 2rem;">👤</span>
+                                </div>
+                                <div class="testimonial-name">Lê Đức Vinh</div>
+                                <div class="testimonial-position">Giám đốc nhân sự<br>Tripod Việt Nam</div>
+                            </div>
+                            <div class="testimonial-right">
+                                <div class="testimonial-text">
+                                    "Paradise HR giúp chúng tôi xử lý khối lượng dữ liệu công và ca kíp phức tạp một
+                                    cách chính xác và nhanh chóng cho hơn 1.700 lao động. Khả năng tùy chỉnh công thức
+                                    lương, thuế và BHXH được thiết kế rất linh hoạt, hoàn toàn phù hợp với đặc thù của
+                                    nhà máy sản xuất như Trippod. Đội ngũ kỹ thuật không chỉ hỗ trợ kịp thời mà còn chủ
+                                    động đề xuất các giải pháp tối ưu hóa quy trình, thể hiện sự đồng hành thực sự cùng
+                                    doanh nghiệp."
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="bottom-text">
+                        Sự hài lòng của khách hàng chính là thước đo thành công<br>
+                        và động lực để chúng tôi không ngừng hoàn thiện !
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6 right-section">
+                    <div class="phone-container">
+                        <img src="https://w.ladicdn.com/s1300x950/691149f809bce700133947b0/paradise-hr-31-20251116234303-bwffc.png"
+                            alt="Paradise HR App" class="phone-image">
+
+                        <div class="review-card review-card-1">
+                            <div class="review-title">Manpower - Cung ứng nguồn nhân lực</div>
+                            <div class="review-text">Paradise HR giúp chúng tôi tính lương nhanh và chính xác, hỗ trợ
+                                luôn kịp thời.</div>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+
+                        <div class="review-card review-card-2">
+                            <div class="review-title">Nidec - Sản xuất các sản phẩm công nghệ cao</div>
+                            <div class="review-text">Paradise HR giúp chúng tôi xử lý hàng ngàn bảng công mỗi tháng một
+                                cách mượt mà, chính xác</div>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+
+                        <div class="review-card review-card-3">
+                            <div class="review-title">Orion Vina - Sản xuất thực phẩm</div>
+                            <div class="review-text">Tính lương cho nhiều ca kíp mượt mà. Paradise giải quyết vấn đề rất
+                                nhanh.</div>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="section-padding bg-pale px-6" id="form-dang-ky">
+        <div class="container-fluid px-4">
+            <div class="row align-items-center">
+
+                <div class="col-lg-7 mb-5 mb-lg-0 pt-4">
+                    <h2 class="text-green fw-bold mb-5">Tự động hóa chấm công, tính lương với Paradise HR</h2>
+
+                    <div class="d-flex align-items-start">
+                        <div class="me-4 text-center">
+                            <img src="https://w.ladicdn.com/s950x700/691149f809bce700133947b0/paradise-hr-3-20251113064326-rdwby.png"
+                                class="rounded " style="width: 165%;">
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-start w-100 mt-5">
+                            <div class="d-flex align-items-start mb-3 feature-line">
+                                <img src="https://w.ladicdn.com/s450x400/691149f809bce700133947b0/paradise-hr-19-20251111225817-julzg.png"
+                                    class="icon-check me-3">
+                                <h4 class="mb-0">Tiết kiệm 80% thời gian</h4>
+                            </div>
+                            <div class="d-flex align-items-start mb-3 feature-line">
+                                <img src="https://w.ladicdn.com/s450x400/691149f809bce700133947b0/paradise-hr-19-20251111225817-julzg.png"
+                                    class="icon-check me-3">
+                                <h4 class=" mb-0">Chính xác 100%</h4>
+                            </div>
+                            <div class="d-flex align-items-start mb-3 feature-line">
+                                <img src="https://w.ladicdn.com/s450x400/691149f809bce700133947b0/paradise-hr-19-20251111225817-julzg.png"
+                                    class="icon-check me-3">
+                                <h4 class=" mb-0">Tuân thủ chính sách lương, thuế, BHXH</h4>
+                            </div>
+                            <div class="d-flex align-items-start mb-3 feature-line">
+                                <img src="https://w.ladicdn.com/s450x400/691149f809bce700133947b0/paradise-hr-19-20251111225817-julzg.png"
+                                    class="icon-check me-3">
+                                <h4 class=" mb-0">Minh bạch tuyệt đối</h4>
+                            </div>
+                            <div class="d-flex align-items-start mb-3 feature-line">
+                                <img src="https://w.ladicdn.com/s450x400/691149f809bce700133947b0/paradise-hr-19-20251111225817-julzg.png"
+                                    class="icon-check me-3">
+                                <h4 class=" mb-0">Dễ dàng tích hợp</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 offset-lg-1">
+                    <div class="register-form text-center" style="margin-right: 15%;">
+                        <h3 class="text-orange fw-bold mb-4">Đăng ký nhận báo giá và tư vấn miễn phí</h3>
+                        <form>
+                            <input type="text" class="form-control" placeholder="Họ và tên của bạn*" required>
+                            <input type="email" class="form-control" placeholder="Email*" required>
+                            <input type="tel" class="form-control" placeholder="Số điện thoại*" required>
+                            <input type="text" class="form-control" placeholder="Tên công ty của bạn*" required>
+
+                            <select class="form-select">
+                                <option selected disabled>-- Quy mô nhân sự --</option>
+                                <option>Dưới 50 nhân sự</option>
+                                <option>50 - 100 nhân sự</option>
+                                <option>100 - 500 nhân sự</option>
+                                <option>Trên 1000 nhân sự</option>
+                            </select>
+
+                            <select class="form-select">
+                                <option selected disabled>-- Chọn khu vực --</option>
+                                <option>Miền Bắc</option>
+                                <option>Miền Trung</option>
+                                <option>Miền Nam</option>
+                            </select>
+
+                            <textarea class="form-control" rows="3"
+                                placeholder="Hãy để lại tin nhắn, chúng tôi sẽ phản hồi sớm nhất"></textarea>
+
+                            <button type="submit" class="btn btn-demo w-100 mt-3">Gửi yêu cầu liên hệ tư vấn</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="text-center text-green fw-bold mb-5">Câu hỏi thường gặp về phần mềm tính lương Paradise HR</h2>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item mb-3 border-0 shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed rounded" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    Phần mềm có cho phép tùy chỉnh và thay đổi công thức tính lương linh hoạt theo từng
+                                    doanh nghiệp không?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Paradise HR cho phép bạn thiết lập và điều chỉnh công thức lương, thưởng, phạt hoặc
+                                    phụ cấp theo chính sách riêng của từng phòng ban hoặc vị trí. Hệ thống hỗ trợ cấu
+                                    hình linh hoạt, phù hợp với mọi mô hình tính lương.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item mb-3 border-0 shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed rounded" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Paradise HR có thể tích hợp với các phần mềm khác như chấm công, kế toán hay quản lý
+                                    nhân sự không?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Paradise HR dễ dàng kết nối với hệ thống chấm công, hay các module khác trong bộ
+                                    giải pháp HRM. Toàn bộ dữ liệu được đồng bộ tự động, giảm sai sót và không mất thời
+                                    gian nhập liệu.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item mb-3 border-0 shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed rounded" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Hệ thống có tự động cập nhật các quy định mới nhất về Luật Lao động, Thuế TNCN và
+                                    Bảo hiểm xã hội không?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Phần mềm cập nhật chính sách định kỳ theo quy định của Nhà nước. Bạn không cần lo
+                                    lắng khi có thay đổi về thuế, bảo hiểm hay mức lương tối thiểu vùng.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item mb-3 border-0 shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed rounded" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    Dữ liệu lương, vốn rất nhạy cảm – được phần mềm bảo mật bằng cách nào?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Paradise HR tuân thủ chuẩn bảo mật cao nhất. Dữ liệu được mã hóa, phân quyền truy
+                                    cập chi tiết theo từng vai trò, và sao lưu tự động trên hệ thống máy chủ bảo mật.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item mb-3 border-0 shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed rounded" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    Nếu doanh nghiệp mở rộng quy mô nhân sự, phần mềm có đủ khả năng đáp ứng không?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Paradise HR là phần mềm mua một lần, sử dụng trọn đời. Không tính phí theo số lượng
+                                    user, cũng không phát sinh thêm chi phí khi mở rộng quy mô. Dù doanh nghiệp tăng
+                                    nhân sự gấp nhiều lần, hệ thống vẫn vận hành ổn định.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="bg-dark text-white py-4 text-center">
+        <div class="container">
+            <p class="mb-0">© 2025 Công ty Cổ Phần Paradise HR. All rights reserved.</p>
+            <small>Địa chỉ: ... | Hotline: ...</small>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const observerOptions = {
+                root: null,
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+
+                        if (el.id === 'pulse-header') {
+                            el.classList.remove('scroll-hidden');
+                            el.classList.add('animate__animated', 'animate__pulse');
+                            observer.unobserve(el);
+                        }
+                        else if (el.classList.contains('scroll-trigger')) {
+                            const animClass = el.getAttribute('data-anim');
+                            el.classList.add('animate__animated', animClass);
+                            observer.unobserve(el);
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            const pulseHeader = document.getElementById('pulse-header');
+            if (pulseHeader) observer.observe(pulseHeader);
+
+            const triggerElements = document.querySelectorAll('.scroll-trigger');
+            triggerElements.forEach(el => observer.observe(el));
+        });
+        const items = document.querySelectorAll(".feature-line");
+        const delay = 300;
+        const animTime = 800;
+        const holdTime = 5000;
+
+        function run() {
+            items.forEach(i => {
+                i.classList.remove("show");
+                i.style.opacity = 0;
+                i.style.animation = "none";
+                void i.offsetWidth;
+                i.style.animation = "";
+            });
+
+            items.forEach((item, idx) => {
+                setTimeout(() => {
+                    item.classList.add("show");
+                }, idx * delay);
+            });
+
+            const totalTime = delay * (items.length - 1) + animTime;
+
+            setTimeout(() => {
+                items.forEach(i => {
+                    i.classList.remove("show");
+                    i.style.opacity = 0;
+                });
+            }, totalTime + holdTime);
+
+            setTimeout(run, totalTime + holdTime + 50);
+        }
+
+        run();
+
+        const itemss = document.querySelectorAll(".scroll-animate");
+
+        function checkScroll() {
+            const trigger = window.innerHeight * 0.85;
+
+            itemss.forEach((el, index) => {
+                const rect = el.getBoundingClientRect();
+
+                if (rect.top < trigger) {
+                    setTimeout(() => {
+                        el.classList.add("show");
+                    }, index * 300);
+                }
+            });
+        }
+
+        window.addEventListener("scroll", checkScroll);
+        checkScroll();
+
+    </script>
+</body>
+
+</html>
