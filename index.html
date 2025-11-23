@@ -14,6 +14,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
+        .company-logo img {
+            transition: opacity 0.6s ease;
+            opacity: 1;
+        }
+
+        .company-logo img.fade-out {
+            opacity: 0;
+        }
+
         @keyframes slideInLeft {
             0% {
                 opacity: 0;
@@ -88,20 +97,20 @@
 
         .company-logo {
 
-            margin-bottom: -50px;
+            margin-bottom: -15px;
         }
 
         .company-logo img {
             max-width: 300px;
-            height: auto;
+            height: 150px;
         }
 
         .testimonial-box {
 
             position: relative;
             overflow: hidden;
-            height: 50%;
-            max-width: 59%;
+            height: 60%;
+            max-width: 60%;
 
             border-width: 5px;
             border-radius: 27px;
@@ -327,9 +336,7 @@
         }
 
         @media (max-width: 768px) {
-            .review-card {
-                display: none;
-            }
+            .review-card {}
 
             .main-title {
                 font-size: 1.8rem;
@@ -456,7 +463,7 @@
             }
 
             .left-img {
-                width: 80%;
+                width: 130% !important;
                 height: auto;
                 margin-bottom: 20px;
             }
@@ -485,6 +492,7 @@
             .box-text {
                 font-size: 14px;
             }
+
         }
 
         .bg-pale {
@@ -614,7 +622,7 @@
         @media (max-width: 991px) {
             .hero-content-bg {
                 padding: 30px 20px;
-                margin-top: 40px;
+
             }
 
             .hero-image-left {
@@ -629,7 +637,7 @@
             .hero-content-bg {
                 background-size: cover;
                 padding: 30px 20px;
-                margin-top: 40px;
+
             }
 
             .hero-image-left {
@@ -749,7 +757,7 @@
 
             font-size: 24px;
             font-weight: 600;
-            margin-bottom: 30px;
+            margin-bottom: 20px !important;
             line-height: 1;
             /* fix chữ bị lệch dọc */
         }
@@ -929,10 +937,10 @@
         /* --- HERO SECTION - MOBILE --- */
         @media (max-width: 767px) {
             .hero-inner .col-lg-6.offset-lg-1 {
-        order: 1;
-        width: 100%;
-        offset: 0;
-    }
+                order: 1;
+                width: 100%;
+                offset: 0;
+            }
 
             .hero-content-bg {
                 padding: 30px 15px;
@@ -958,12 +966,12 @@
             }
 
             .hero-inner img[alt="Logo"] {
-        max-width: 150px;
-        margin-bottom: 25px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
+                max-width: 150px;
+                margin-bottom: 25px;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
 
             .hero-title {
                 font-size: 28px;
@@ -998,9 +1006,9 @@
             }
 
             .hero-content-bg .row.align-items-center {
-        display: flex !important;
-        flex-direction: column !important;
-    }
+                display: flex !important;
+                flex-direction: column !important;
+            }
 
             /* Logo đầu tiên */
             .hero-inner img[alt="Logo"] {
@@ -1012,21 +1020,23 @@
                 margin-right: auto;
             }
 
-           .hero-inner h1.text-green {
-        font-size: 26px !important;
-        text-align: center;
-        margin-bottom: 25px;
-        line-height: 1.3 !important;
-    }
+            .hero-inner h1.text-green {
+                font-size: 26px !important;
+                text-align: center;
+                margin-bottom: 25px;
+                line-height: 1.3 !important;
+            }
 
             /* Hình ảnh thứ 3 */
-           .hero-content-bg .col-lg-5 {
-        order: 2 !important; /* Đẩy hình xuống sau title */
-        width: 100%;
-        margin-bottom: 25px;
-    }
+            .hero-content-bg .col-lg-5 {
+                order: 2 !important;
+                /* Đẩy hình xuống sau title */
+                width: 100%;
+                margin-bottom: 25px;
+            }
+
             .hero-image-left {
-                width: 90% !important;
+                width: 125% !important;
                 left: 0 !important;
                 margin: 0 auto;
                 display: block;
@@ -1034,50 +1044,51 @@
 
             /* Subtitle thứ 4 */
             .hero-inner h2.text-orange {
-        font-size: 20px !important;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-    
-  .hero-inner div[style*="width: 637px"] {
-        width: 100% !important;
-        padding: 0 15px;
-    }
+                font-size: 20px !important;
+                margin-bottom: 20px;
+                text-align: center;
+            }
 
-         .hero-inner div[style*="width: 637px"] p {
-        font-size: 16px !important;
-        text-align: center;
-        margin-bottom: 25px !important;
-    }
+            .hero-inner div[style*="width: 637px"] {
+                width: 100% !important;
+                padding: 0 15px;
+            }
 
-           .hero-inner .mt-5.d-flex.gap-3 {
-        flex-direction: row !important;
-        gap: 10px !important;
-        margin-top: 25px !important;
-        justify-content: center;
-        padding: 0 15px;
-    }
- .hero-inner .mt-5.d-flex.gap-3 .btn-demo {
-        width: 48%;
-        padding: 12px 10px;
-        font-size: 13px;
-        text-align: center;
-    }
-    
-    /* Reset animate để không bị conflict */
-    .hero-content-bg .animate__animated {
-        animation: none !important;
-    }
-    
-    /* Đảm bảo container cha không bị lệch */
-    .hero-content-bg {
-        padding: 30px 0;
-        min-height: auto !important;
-    }
-    
-    .hero-bg-img {
-        display: none;
-    }
+            .hero-inner div[style*="width: 637px"] p {
+                font-size: 16px !important;
+                text-align: center;
+                margin-bottom: 25px !important;
+            }
+
+            .hero-inner .mt-5.d-flex.gap-3 {
+                flex-direction: row !important;
+                gap: 10px !important;
+                margin-top: 25px !important;
+                justify-content: center;
+                padding: 0 15px;
+            }
+
+            .hero-inner .mt-5.d-flex.gap-3 .btn-demo {
+                width: 48%;
+                padding: 12px 10px;
+                font-size: 13px;
+                text-align: center;
+            }
+
+            /* Reset animate để không bị conflict */
+            .hero-content-bg .animate__animated {
+                animation: none !important;
+            }
+
+            /* Đảm bảo container cha không bị lệch */
+            .hero-content-bg {
+                padding: 30px 0;
+                min-height: auto !important;
+            }
+
+            .hero-bg-img {
+                display: none;
+            }
         }
 
         /* --- CUSTOMER LOGOS - MOBILE --- */
@@ -1092,7 +1103,7 @@
             }
 
             .row.justify-content-center.align-items-center.g-6 img {
-                max-width: 70%;
+                max-width: 90% !important;
             }
         }
 
@@ -1134,8 +1145,8 @@
                 margin: 0 auto 15px auto;
                 /* Căn giữa */
                 padding: 15px 20px !important;
-          
-               
+
+
             }
 
             .custom-grid {
@@ -1240,15 +1251,34 @@
                 padding: 0 15px;
             }
 
+            .mb-custume {
+
+                width: 120% !important;
+            }
+
+            .mb-custume-1 {
+
+                width: 120% !important;
+            }
+
             .section-padding.bg-pale.px-6 .image-wrapper img {
-                width: 100% !important;
+                width: 110%;
+            }
+
+            .image-custume {
+                margin-bottom: -35% !important;
+            }
+
+            .image-custume-1 {
+                margin-top: 5% !important;
+                width: 165% !important;
             }
 
             .section-padding.bg-pale.px-6 .img-overlay {
                 position: relative !important;
-                top: 0 !important;
-                left: 0 !important;
-                width: 70% !important;
+                top: -154px !important;
+                left: -105px !important;
+                width: 50% !important;
                 margin: 20px auto 0;
                 display: block;
             }
@@ -1271,9 +1301,6 @@
                 width: 100%;
             }
 
-            .d-flex .me-3 {
-                display: none;
-            }
         }
 
         /* --- SECTION PADDING MOBILE --- */
@@ -1300,8 +1327,8 @@
             }
 
             .big-img {
-                max-width: 90%;
-                margin: 20px auto;
+                max-width: 100%;
+                margin: 20px 35px;
                 display: block;
             }
 
@@ -1332,11 +1359,11 @@
 
             .left-section {
                 height: auto;
-                margin-bottom: 30px;
+                margin-bottom: 90px;
             }
 
             .main-title {
-                font-size: 24px;
+                font-size: 23px;
             }
 
             .company-logo {
@@ -1345,6 +1372,7 @@
             }
 
             .company-logo img {
+                margin-bottom: -30px;
                 max-width: 200px;
             }
 
@@ -1375,32 +1403,80 @@
             }
 
             .bottom-text {
-                font-size: 18px;
+                font-size: 21px;
                 text-align: center;
                 padding-bottom: 20px;
             }
 
-            .right-section {
-                padding: 20px 0;
-            }
-
             .phone-container {
-                left: 0;
+                position: relative;
+                /* để các review-card absolute nằm trong */
                 width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
 
             .phone-image {
-                max-width: 80%;
-                margin: 0 auto;
+                width: 160% !important;
+                margin: 0 auto 20px;
                 display: block;
             }
 
+            /* Review card mobile style */
             .review-card {
-                display: none;
+                position: absolute;
+                /* nằm trên hình */
+                top: 10px;
+                /* cách top của container */
+                left: 5%;
+                /* căn gần bên trái hình */
+                width: 63%;
+
+                padding: 12px;
+                background-color: #fff;
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                border-radius: 12px;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+                font-size: 13px;
+                line-height: 1.4;
+                z-index: 10;
+            }
+
+            .review-card-1 {
+                top: -50px;
+                left: 57%;
+            }
+
+            .review-card-2 {
+                top: 120px;
+                /* cách card 1 khoảng 100px, điều chỉnh nếu cần */
+                left: 52%;
+            }
+
+            .review-card-3 {
+                top: 315px;
+                /* cách card 2 khoảng 100px */
+                left: 50%;
+            }
+
+            .review-card .review-title {
+                font-weight: 600;
+                font-size: 14px;
+                margin-bottom: 4px;
+            }
+
+            .review-card .review-text {
+                font-size: 13px;
+                color: #333;
+            }
+
+            .review-card .stars {
+                font-size: 14px;
+                color: #f5c518;
             }
         }
 
-        /* --- FORM ĐĂNG KÝ SECTION - MOBILE --- */
         @media (max-width: 767px) {
             section.section-padding.bg-pale.px-6#form-dang-ky .row.align-items-center {
                 flex-direction: column;
@@ -1424,15 +1500,24 @@
             }
 
             section.section-padding.bg-pale.px-6#form-dang-ky .me-4 {
-                margin-right: 0 !important;
+                order: 0;
+                /* image luôn trên */
                 margin-bottom: 20px;
                 width: 100%;
                 text-align: center;
             }
 
+            section.section-padding.bg-pale.px-6#form-dang-ky .d-flex.flex-column {
+                order: 1;
+                /* text luôn dưới */
+                width: 100%;
+                margin-top: 0 !important;
+            }
+
             section.section-padding.bg-pale.px-6#form-dang-ky .me-4 img {
                 width: 80%;
-                max-width: 300px;
+                /* resize cho mobile */
+                height: auto;
             }
 
             section.section-padding.bg-pale.px-6#form-dang-ky .d-flex.flex-column {
@@ -1440,11 +1525,24 @@
             }
 
             .feature-line {
-                margin-bottom: 20px;
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: flex-start;
+                gap: 8px;
+                width: 100%;
             }
 
             .feature-line h4 {
-                font-size: 16px;
+                margin-bottom: 10px !important;
+                font-size: 14px;
+                text-align: left;
+                margin-left: -40px;
+            }
+
+            .feature-line .icon-check {
+                width: 60px;
+                height: 40px;
             }
 
             .icon-check {
@@ -1500,13 +1598,20 @@
                 padding: 0 15px;
             }
         }
+
+        .content-max-width {
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 0;
+        }
     </style>
 </head>
 
 <body>
 
     <section class="section-padding bg-pale hero-content-bg" style="min-height: 800px;">
-        <div class="container-fluid">
+        <div class="content-max-width">
             <img class="hero-bg-img"
                 src="https://w.ladicdn.com/s2150x1450/691149f809bce700133947b0/thiet-ke-chua-co-ten-20251110033809-3nbag.png"
                 alt="BG">
@@ -1560,7 +1665,7 @@
     </section>
 
     <section class="py-3">
-        <div class="container-fluid px-4">
+        <div class="content-max-width">
             <div class="text-center">
                 <p class="text-orange fw-bold mt-4 mb-4" style="font-size: 36.5px;">Được tin tưởng sử dụng bởi 500+
                     doanh
@@ -1588,7 +1693,7 @@
     </section>
 
     <section class="section-padding" style="background-color: var(--bg-light-green);">
-        <div class="container-fluid px-4">
+        <div class="content-max-width">
             <h2 class="hero-title">Giải phóng nhân sự khỏi công việc thủ công với<br>Phần Mềm Tính Lương Paradise HR.
             </h2>
 
@@ -1637,7 +1742,7 @@
         </div>
     </section>
     <section class="py-3" style="margin-bottom: -25%;">
-        <div class="container-fluid px-4">
+        <div class="content-max-width">
             <div class="text-center">
                 <h2 class="hero-title" style="margin-bottom: 3% !important;">Giải pháp tính lương toàn diện – Tự động
                     hóa từ
@@ -1656,7 +1761,7 @@
     </section>
 
     <section class="py-3" style="background-color: var(--bg-light-green);">
-        <div class="container-fluid px-4">
+        <div class="content-max-width">
             <div class="text-center">
                 <h3 class="hero-title">Tính lương tự động, linh hoạt </h3>
                 <h3 style="font-weight: 100 !important;" class="ladi-headline ladi-transition">Thiết lập công thức linh
@@ -1669,11 +1774,11 @@
 
 
     <section class="section-padding bg-pale px-6">
-        <div class="container-fluid px-4">
+        <div class="content-max-width">
             <div class="row align-items-center">
 
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <div class="image-wrapper" style="position: relative; width: 100%;">
+                    <div class="image-wrapper image-custume" style="position: relative; width: 100%;">
                         <img src="https://w.ladicdn.com/s1150x850/691149f809bce700133947b0/paradise-hr-1-20251113022152-3elr5.png"
                             data-anim="animate__fadeInLeft" style="width: 100%;">
 
@@ -1741,7 +1846,7 @@
     </section>
 
     <section class="py-3" style="background-color: var(--bg-light-green);">
-        <div class="container-fluid px-4">
+        <div class="content-max-width">
             <div class="text-center">
                 <h3 class="hero-title">Kết nối trực tiếp với hệ thống chấm công</h3>
                 <h3 style="font-weight: 100 !important;" class="ladi-headline ladi-transition">Kết nối trực tiếp với máy
@@ -1753,7 +1858,7 @@
     </section>
 
     <section class="section-padding bg-pale px-6">
-        <div class="container-fluid px-4">
+        <div class="content-max-width">
             <div class="row align-items-center">
 
                 <div class="col-lg-6 mb-4 mb-lg-0">
@@ -1813,7 +1918,7 @@
         </div>
     </section>
     <section class="py-3" style="background-color: var(--bg-light-green);">
-        <div class="container-fluid px-4">
+        <div class="content-max-width">
             <div class="text-center">
                 <h3 class="hero-title">Tự động áp dụng chính sách lương, thuế, BHXH
                 </h3>
@@ -1825,7 +1930,7 @@
         </div>
     </section>
     <section class="section-padding bg-pale px-6">
-        <div class="container-fluid px-4">
+        <div class="content-max-width">
             <div class="row align-items-center">
 
                 <div class="col-lg-6 mb-4 mb-lg-0">
@@ -1887,7 +1992,7 @@
         </div>
     </section>
     <section class="py-3" style="background-color: var(--bg-light-green);">
-        <div class="container-fluid px-4">
+        <div class="content-max-width">
             <div class="text-center">
                 <h3 class="hero-title">Cập nhật phép và dữ liệu thời gian thực</h3>
                 <h3 style="font-weight: 100 !important;" class="ladi-headline ladi-transition">Theo dõi và cập nhật tồn
@@ -1898,13 +2003,13 @@
         </div>
     </section>
     <section class="section-padding bg-pale px-6">
-        <div class="container-fluid px-4">
+        <div class="content-max-width">
             <div class="row align-items-center">
 
                 <div class="col-lg-6 mb-4 mb-lg-0">
                     <div class="image-wrapper" style="position: relative; width: 100%;">
                         <img src="https://w.ladicdn.com/s1300x950/691149f809bce700133947b0/paradise-hr-33-20251112083013-3j2ar.png"
-                            data-anim="animate__fadeInLeft" style="width: 105%;">
+                            data-anim="animate__fadeInLeft" class="mb-custume-1" style="width: 105%;">
 
                     </div>
                 </div>
@@ -1960,7 +2065,7 @@
     </section>
 
     <section class="py-3" style="background-color: var(--bg-light-green);">
-        <div class="container-fluid px-4">
+        <div class="content-max-width">
             <div class="text-center">
                 <h3 class="hero-title">Tổng hợp và xuất báo cáo lương, thưởng, thuế,
                     BHXH</h3>
@@ -1972,13 +2077,13 @@
         </div>
     </section>
     <section class="section-padding bg-pale px-6">
-        <div class="container-fluid px-4">
+        <div class="content-max-width">
             <div class="row align-items-center">
 
                 <div class="col-lg-6 mb-4 mb-lg-0">
                     <div class="image-wrapper" style="position: relative; width: 100%;">
                         <img src="https://w.ladicdn.com/s1150x850/691149f809bce700133947b0/paradise-hr-35-20251112090133-0i9nf.png"
-                            data-anim="animate__fadeInLeft" style="width:105%;">
+                            data-anim="animate__fadeInLeft" class="mb-custume" style="width:105%;">
 
                     </div>
                 </div>
@@ -2033,7 +2138,7 @@
         </div>
     </section>
     <section class="py-3" style="">
-        <div class="container-fluid px-4">
+        <div class="content-max-width">
             <div class="text-center">
                 <h3 class="hero-title">Gửi phiếu lương tự động, minh bạch từng khoản thu nhập</h3>
                 <h3 style="font-weight: 100 !important;" class="ladi-headline ladi-transition">Gửi phiếu lương tự động
@@ -2044,13 +2149,13 @@
         </div>
     </section>
     <section class="section-padding">
-        <div class="container-fluid px-4">
+        <div class="content-max-width">
             <div class="row align-items-center">
 
                 <div class="col-lg-6 mb-4 mb-lg-0">
                     <div class="image-wrapper" style="position: relative; width: 100%;">
                         <img src="https://w.ladicdn.com/s1500x1050/691149f809bce700133947b0/paradise-hr-44-20251118072624-lrpyu.png"
-                            data-anim="animate__fadeInLeft">
+                            data-anim="animate__fadeInLeft" class="image-custume-1">
                     </div>
                 </div>
 
@@ -2099,7 +2204,7 @@
 
 
     <section class="section-padding bg-pale px-6">
-        <div class="container-fluid px-4">
+        <div class="content-max-width">
             <div class="row align-items-start">
 
                 <div class="col-lg-6">
@@ -2164,12 +2269,12 @@
                 <div class="col-lg-6 left-section">
                     <h2 class="main-title">Khách hàng nói gì về Paradise HR?</h2>
                     <div class="company-logo">
-                        <img src="https://w.ladicdn.com/s650x550/691149f809bce700133947b0/paradise-hr-25-20251116232620-19rnk.png"
-                            alt="Steel Flower">
+                        <img src="" alt="Steel Flower">
                     </div>
 
                     <div class="testimonial-box">
-                        <div class="testimonial-content">
+                        <div class="testimonial-content"
+                            data-logo="https://w.ladicdn.com/s700x550/691149f809bce700133947b0/paradise-hr-26-20251116232739-b4ipm.png">
                             <div class="testimonial-left">
                                 <div class="avatar-circle">
                                     <span style="font-size: 2rem;">👤</span>
@@ -2187,7 +2292,8 @@
                             </div>
                         </div>
 
-                        <div class="testimonial-content">
+                        <div class="testimonial-content"
+                            data-logo="https://w.ladicdn.com/s650x500/691149f809bce700133947b0/paradise-hr-17-20251116232442-d-es2.png">
                             <div class="testimonial-left">
                                 <div class="avatar-circle">
                                     <span style="font-size: 2rem;">👤</span>
@@ -2207,7 +2313,8 @@
                             </div>
                         </div>
 
-                        <div class="testimonial-content">
+                        <div class="testimonial-content"
+                            data-logo="https://w.ladicdn.com/s600x500/691149f809bce700133947b0/paradise-hr-30-20251116233818-skzn7.png">
                             <div class="testimonial-left">
                                 <div class="avatar-circle">
                                     <span style="font-size: 2rem;">👤</span>
@@ -2226,7 +2333,8 @@
                             </div>
                         </div>
 
-                        <div class="testimonial-content">
+                        <div class="testimonial-content"
+                            data-logo="https://w.ladicdn.com/s750x550/691149f809bce700133947b0/paradise-hr-25-20251116232620-19rnk.png">
                             <div class="testimonial-left">
                                 <div class="avatar-circle">
                                     <span style="font-size: 2rem;">👤</span>
@@ -2245,7 +2353,8 @@
                             </div>
                         </div>
 
-                        <div class="testimonial-content">
+                        <div class="testimonial-content"
+                            data-logo="https://w.ladicdn.com/s750x600/691149f809bce700133947b0/paradise-hr-20-20251116232507-vjtmk.png">
                             <div class="testimonial-left">
                                 <div class="avatar-circle">
                                     <span style="font-size: 2rem;">👤</span>
@@ -2267,7 +2376,7 @@
 
                     </div>
 
-                    <div class="bottom-text">
+                    <div class="bottom-text mt-5">
                         Sự hài lòng của khách hàng chính là thước đo thành công<br>
                         và động lực để chúng tôi không ngừng hoàn thiện !
                     </div>
@@ -2308,7 +2417,7 @@
 
 
     <section class="section-padding bg-pale px-6" id="form-dang-ky">
-        <div class="container-fluid px-4">
+        <div class="content-max-width">
             <div class="row align-items-center">
 
                 <div class="col-lg-7 mb-5 mb-lg-0 pt-4">
@@ -2351,7 +2460,7 @@
                 </div>
 
                 <div class="col-lg-4 offset-lg-1">
-                    <div class="register-form text-center" style="margin-right: 15%;">
+                    <div class="register-form text-center">
                         <h3 class="text-orange fw-bold mb-4">Đăng ký nhận báo giá và tư vấn miễn phí</h3>
                         <form>
                             <input type="text" class="form-control" placeholder="Họ và tên của bạn*" required>
@@ -2571,6 +2680,26 @@
 
         window.addEventListener("scroll", checkScroll);
         checkScroll();
+        var logoImg = document.querySelector(".company-logo img");
+        var itemsw = document.querySelectorAll(".testimonial-content");
+        var currentItemIndex = 0;
+        var fadeDuration = 600;
+        var displayDuration = 10000;
+
+        function updateLogo() {
+            const item = itemsw[currentItemIndex];
+            const newLogo = item.getAttribute("data-logo");
+            logoImg.classList.add("fade-out");
+            setTimeout(() => {
+                logoImg.src = newLogo;
+                logoImg.classList.remove("fade-out");
+
+                currentItemIndex = (currentItemIndex + 1) % itemsw.length;
+            }, fadeDuration);
+        }
+
+        updateLogo();
+        setInterval(updateLogo, displayDuration);
 
     </script>
 </body>
