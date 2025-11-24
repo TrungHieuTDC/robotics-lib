@@ -36,6 +36,7 @@
         }
 
         .scroll-animate {
+            width: 10%;
             opacity: 0;
             transform: translateX(-150px);
             transition: opacity 0.3s ease;
@@ -43,6 +44,29 @@
 
         .scroll-animate.show {
             animation: slideInLeft 0.8s ease forwards;
+        }
+
+        .process-wrapper img {
+            width: 100%;
+            max-width: 150px;
+        }
+
+        .process-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+
+        }
+
+        .arrow-icon {
+            width: 40px;
+            opacity: 0.7;
+        }
+
+        .process-item,
+        .process-arrow {
+            text-align: center;
         }
 
         @keyframes bounceInLeft {
@@ -451,6 +475,73 @@
 
         /* --- Mobile: xếp cột, vẫn giữ hình vuông --- */
         @media (max-width: 767px) {
+            .arrow-icon {
+            width: 50px !important;
+            opacity: 0.7;
+        }
+            .process-wrapper {
+                flex-wrap: wrap;
+                /* Cho xuống dòng */
+              
+                /* khoảng cách giữa hình */
+                justify-content: center;
+            }
+          .arrow-hide{
+                display: none  !important;
+            }
+            .arrow-hide-3{
+                margin-left: 14px;
+            }
+             .arrow-hide-4{
+                margin-left: 20px;
+            }
+             .arrow-hide-5{
+                margin-top: 60%;
+                margin-left:-40px;
+            }
+            .image-arrow-1{
+                 margin-top: 60%;
+                margin-left:-12px;
+            }
+            .arrow-cus-1{
+               margin-top: 60%;
+            }
+            .arrow-cus-2{
+               margin-left: 14px;
+            }
+            .section-custume{
+                    height: 700px !important;
+            }
+            .section-custume-1{
+                    height: 1000px !important;
+                        margin-bottom: -140% !important;
+            }
+            
+            .arrow-cus-3{
+                margin-top: 235%;
+                margin-left: -5px
+            }
+            .arrow-cus-5{
+                margin-left: -21px;
+                        margin-top: 235%;
+            }
+            .process-item {
+                width: 23%;
+                /* 3 item / dòng */
+                text-align: center;
+            }
+
+            .process-item img {
+                width: 100%;
+                max-width: 100px;
+                /* thu nhỏ để vừa */
+            }
+
+            /* Ẩn mũi tên trên mobile */
+            .process-arrow {
+                display: block !important;
+            }
+
             .row.justify-content-center.align-items-center {
                 flex-direction: column;
             }
@@ -653,7 +744,7 @@
         }
 
         .hero-title {
-            font-size: 42.5px;
+            font-size: 41.5px;
             font-weight: 700;
             color: #0b5430;
             text-align: center;
@@ -1001,7 +1092,7 @@
 
             .btn-demo {
                 width: 100%;
-                padding: 12px 20px;
+                padding: 12px 20px !important;
                 font-size: 14px;
             }
 
@@ -1273,12 +1364,15 @@
                 margin-top: 5% !important;
                 width: 165% !important;
             }
-             .image-custume-2 {
+
+            .image-custume-2 {
                 order: 3 !important;
             }
-            .section-custume{
+
+            .section-custume {
                 padding: 0px !important;
             }
+
             .section-padding.bg-pale.px-6 .img-overlay {
                 position: relative !important;
                 top: -154px !important;
@@ -1463,6 +1557,7 @@
                 top: 241px;
                 /* cách card 2 khoảng 100px */
                 left: 50%;
+                height: 120px;
             }
 
             .review-card .review-title {
@@ -1746,24 +1841,53 @@
             </div>
         </div>
     </section>
-    <section class="py-3" style="margin-bottom: -25%;">
-        <div class="content-max-width">
+    <section class="py-3 section-custume section-custume-1" style="margin-bottom: -30%;height: 1000px;">
+        <div class="">
             <div class="text-center">
-                <h2 class="hero-title" style="margin-bottom: 3% !important;">Giải pháp tính lương toàn diện – Tự động
-                    hóa từ
-                    chấm công đến phiếu lương</h2>
-                <div class=" row ">
-                    <div class="col-6 col-md-2" style="margin-left: 4%;"><img
-                            src="https://w.ladicdn.com/s1300x900/691149f809bce700133947b0/paradise-hr-16-20251111103155-f7xsb.png"
-                            class="scroll-animate"></div>
-                    <div class="col-6 col-md-2" style="margin-left: 25%;"><img
-                            src="https://w.ladicdn.com/s1300x900/691149f809bce700133947b0/paradise-hr-17-20251111103246-bbvtx.png"
-                            class="scroll-animate"></div>
+                <h2 class="hero-title" style="margin-bottom: 5% !important;">
+                    Giải pháp tính lương toàn diện – Tự động hóa từ chấm công đến phiếu lương
+                </h2>
+
+                <div class="row justify-content-center process-wrapper" style="margin-left: 11%;width: 75%;">
+                    <div class="process-item scroll-animate ">
+                        <img src="./image/giai-phap-tinh-luong-toan-dien-2.webp">
+                    </div>
+                    <div class="process-arrow scroll-animate col-1 d-none d-md-flex">
+                        <img src="./image/giai-phap-tinh-luong-toan-dien-1.webp" class="arrow-icon ">
+                    </div>
+                    <div class="process-item scroll-animate ">
+                        <img src="./image/giai-phap-tinh-luong-toan-dien-3.webp" class="arrow-hide-3">
+                    </div>
+                    <div class="process-arrow scroll-animate col-1 d-none d-md-flex">
+                        <img src="./image/giai-phap-tinh-luong-toan-dien-1.webp" class="arrow-icon arrow-cus-2">
+                    </div>
+                    <div class="process-item scroll-animate">
+                        <img src="./image/giai-phap-tinh-luong-toan-dien-4.webp" class="arrow-hide-4">
+                    </div>
+                    <div class="process-arrow scroll-animate col-1 d-none d-md-flex">
+                        <img src="./image/giai-phap-tinh-luong-toan-dien-1.webp" class="arrow-icon  arrow-hide">
+                    </div>
+                    <div class="process-item scroll-animate ">
+                        <img src="./image/giai-phap-tinh-luong-toan-dien-5.webp" class="arrow-hide-5 ">
+                    </div>
+                    <div class="process-arrow scroll-animate col-1 d-none d-md-flex">
+                        <img src="./image/giai-phap-tinh-luong-toan-dien-1.webp" class="arrow-icon arrow-cus-5">
+                    </div>
+                    <div class="process-item scroll-animate ">
+                        <img src="./image/giai-phap-tinh-luong-toan-dien-6.webp" class="image-arrow-1">
+                    </div>
+                    <div class="process-arrow scroll-animate col-1 d-none d-md-flex">
+                        <img src="./image/giai-phap-tinh-luong-toan-dien-1.webp" class="arrow-icon arrow-cus-3">
+                    </div>
+                    <div class="process-item scroll-animate ">
+                        <img src="./image/giai-phap-tinh-luong-toan-dien-7.webp" class="arrow-cus-1">
+                    </div>
 
                 </div>
             </div>
         </div>
     </section>
+
 
     <section class="py-3" style="background-color: var(--bg-light-green);">
         <div class="content-max-width">
@@ -2153,7 +2277,7 @@
             </div>
         </div>
     </section>
-    <section class="section-padding section-custume mb-5">
+    <section class="section-padding section-custume mb-5 section-custume-2">
         <div class="content-max-width">
             <div class="row align-items-center">
 
@@ -2705,6 +2829,24 @@
 
         updateLogo();
         setInterval(updateLogo, displayDuration);
+        const processEls = document.querySelectorAll(".process-item, .process-arrow");
+
+        function animateProcess() {
+            const trigger = window.innerHeight * 0.85;
+
+            processEls.forEach((el, index) => {
+                const rect = el.getBoundingClientRect();
+
+                if (rect.top < trigger) {
+                    setTimeout(() => {
+                        el.classList.add("show");
+                    }, index * 250); // 6 bước tuần tự
+                }
+            });
+        }
+
+        window.addEventListener("scroll", animateProcess);
+        animateProcess();
 
     </script>
 </body>
