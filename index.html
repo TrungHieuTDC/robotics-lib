@@ -14,6 +14,269 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
+        /* ==========================================================================
+           1. MEDIA QUERY CHO TABLET / IPAD (768px - 1023px)
+           Giao diện dọc hoặc ngang của máy tính bảng
+           ========================================================================== */
+        @media (min-width: 768px) and (max-width: 1023px) {
+
+            /* --- Căn chỉnh chung --- */
+            .section-custume-3 {
+                margin-left: 5%;
+                /* Ước lượng giữa 4% mobile và 8% desktop */
+                width: 90%;
+            }
+
+            .main-title {
+                font-size: 32px;
+                /* Nhỏ hơn desktop, to hơn mobile */
+            }
+
+            .hero-title {
+                font-size: 30px;
+            }
+
+            .bottom-text {
+                font-size: 18px;
+            }
+
+            /* --- Hero Section --- */
+            .hero-content-bg {
+                padding: 40px 20px;
+                min-height: auto;
+            }
+
+            .hero-image-left {
+                width: 100%;
+                /* Thu gọn lại để không tràn */
+                left: 0;
+                margin-bottom: 20px;
+            }
+
+            .hero-inner h1.text-green {
+                font-size: 32px !important;
+            }
+
+            .hero-inner div[style*="width: 637px"] {
+                width: 100% !important;
+                /* Cho full width trên tablet */
+            }
+
+            /* --- Grid 4 Box (Giải phóng nhân sự) --- */
+            /* Chuyển từ absolute lung tung sang Grid 2x2 gọn gàng hơn cho tablet */
+            .custom-grid {
+                position: relative;
+                width: 100%;
+                height: auto;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap: 20px;
+                margin-top: 30px;
+            }
+
+            .custom-box {
+                position: relative !important;
+                /* Bỏ absolute để xếp dòng */
+                top: auto !important;
+                left: auto !important;
+                width: 48%;
+                /* 2 box 1 hàng */
+                margin-bottom: 0;
+                height: auto;
+                aspect-ratio: auto;
+                min-height: 200px;
+            }
+
+            .left-img {
+                width: 100% !important;
+                height: auto;
+            }
+
+            /* --- Process Flow (Mũi tên) --- */
+            .process-wrapper img {
+                max-width: 100px;
+                /* Thu nhỏ icon quy trình chút */
+            }
+
+            .arrow-icon {
+                width: 30px;
+                /* Thu nhỏ mũi tên */
+            }
+
+            /* --- Testimonials (Khách hàng nói gì) --- */
+            .testimonial-box {
+                max-width: 100%;
+                /* Full width container bên trái */
+                height: auto;
+                min-height: 350px;
+            }
+
+            .company-logo img {
+                max-width: 220px;
+            }
+
+            /* --- Review Cards (Phần điện thoại bên phải) --- */
+            /* Trên tablet, đẩy các card sát vào hoặc xuống dưới */
+            .phone-container {
+                left: 0;
+                /* Reset vị trí */
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .phone-image {
+                width: 80%;
+                /* Ảnh điện thoại nhỏ lại */
+            }
+
+            .review-card {
+                position: relative;
+                /* Không để trôi nổi nữa */
+                top: auto !important;
+                right: auto !important;
+                left: auto !important;
+                animation: none;
+                /* Tắt bay nhảy để đỡ rối */
+                margin-top: 15px;
+                width: 80%;
+                max-width: none;
+            }
+
+            /* --- Feature Sections (Ảnh + Text xen kẽ) --- */
+            .image-wrapper img {
+                width: 100% !important;
+                /* Đảm bảo ảnh không tràn */
+            }
+
+            .image-custume-1 {
+                width: 100% !important;
+            }
+
+            /* Form đăng ký */
+            section.section-padding.bg-pale.px-6#form-dang-ky .col-lg-7 {
+                margin-bottom: 30px;
+            }
+
+            .register-form {
+                padding: 20px;
+            }
+        }
+
+        /* ==========================================================================
+           2. MEDIA QUERY CHO LAPTOP NHỎ / DESKTOP ZOOM 150% (1024px - 1440px)
+           Đây là vùng giao diện hay bị vỡ nhất vì vẫn tính là desktop nhưng không gian hẹp
+           ========================================================================== */
+        @media (min-width: 1024px) and (max-width: 1440px) {
+
+            /* --- Căn chỉnh chung --- */
+            .content-max-width {
+                max-width: 95%;
+                /* Mở rộng khung chứa ra để đỡ chật */
+            }
+
+            .section-custume-3 {
+                margin-left: 6%;
+                /* Canh chỉnh lại lề */
+                width: 88%;
+            }
+
+            .main-title {
+                font-size: 36px;
+            }
+
+            /* --- Hero Section --- */
+            .hero-image-left {
+                width: 110%;
+                /* Giảm từ 135% xuống */
+                left: 0;
+            }
+
+            .hero-title {
+                font-size: 34px;
+            }
+
+            .hero-inner p {
+                font-size: 18px !important;
+                /* Giảm font body */
+            }
+
+            /* --- Grid 4 Box (Giải phóng nhân sự) --- */
+            /* Vẫn giữ Absolute nhưng chỉnh tọa độ cho khít hơn */
+            .custom-grid {
+                height: 500px;
+                /* Giảm chiều cao tổng */
+            }
+
+            .custom-box {
+                padding: 15px;
+                width: 40%;
+                /* Tăng width box lên chút */
+            }
+
+            /* Box 1 (Gốc trên trái) */
+            /* Box 2 (Gốc giữa trái) -> Chỉnh lại */
+            .custom-box:nth-child(2) {
+                left: 0 !important;
+                /* Kéo sát lề trái hơn */
+            }
+
+            /* Box 3 & 4 (Bên phải) */
+            .custom-box:nth-child(3),
+            .custom-box:nth-child(4) {
+                left: 45% !important;
+                /* Kéo box bên phải sát vào giữa hơn (Gốc là 37%) */
+            }
+
+            /* --- Review Cards (Phần điện thoại) --- */
+            .phone-container {
+                left: -10%;
+                /* Đẩy container sang trái chút */
+            }
+
+            /* Thu các thẻ review vào gần điện thoại hơn */
+            .review-card {
+                padding: 10px 15px;
+                max-width: 250px;
+                /* Giới hạn chiều rộng card */
+            }
+
+            .review-card-1 {
+                right: -10%;
+                /* Gốc là -25%, kéo vào */
+            }
+
+            .review-card-2 {
+                right: -5%;
+                /* Gốc là -20% */
+            }
+
+            .review-card-3 {
+                right: 0%;
+                /* Gốc là -15% */
+            }
+
+            /* --- Testimonials --- */
+            .testimonial-box {
+                max-width: 90%;
+                       min-height: 265px !important;
+            }
+
+            /* --- Form Đăng ký --- */
+            /* Ảnh bên trái form */
+            .col-lg-7 img.rounded {
+                width: 120% !important;
+                /* Giảm từ 165% xuống */
+            }
+
+            .feature-line h4 {
+                font-size: 18px;
+                /* Giảm font chữ feature */
+            }
+        }
+
         .section-custume-3 {
             margin-left: 8%;
             width: 85%;
@@ -121,7 +384,7 @@
 
         .left-section {
             position: relative;
-            height: 500px;
+           
         }
 
         .company-logo {
@@ -135,12 +398,12 @@
         }
 
         .testimonial-box {
-
+            margin-top: 1%;
             position: relative;
             overflow: hidden;
-            height: 60%;
-            max-width: 60%;
-
+            height: auto !important;
+            width: 65% !important;
+            min-height: 300px;
             border-width: 5px;
             border-radius: 27px;
             border-style: solid;
@@ -158,7 +421,10 @@
             animation: slideTestimonial 50s infinite;
             display: flex;
             gap: 35px;
-            align-items: flex-start;
+
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
 
         .testimonial-content:nth-child(1) {
@@ -431,7 +697,7 @@
             font-weight: 700;
             text-transform: uppercase;
             border: none;
-            /* BỎ VIỀN TRẮNG THEO YÊU CẦU */
+
             box-shadow: 0 5px 15px rgba(241, 97, 58, 0.4);
             transition: all 0.3s ease;
         }
@@ -481,9 +747,10 @@
         /* --- Mobile: xếp cột, vẫn giữ hình vuông --- */
         @media (max-width: 767px) {
             .section-custume-3 {
-            margin-left: 4%;
-            width: 100%;
-        }
+                margin-left: 4%;
+                width: 100%;
+            }
+
             .arrow-icon {
                 width: 50px !important;
                 opacity: 0.7;
@@ -497,6 +764,10 @@
                 justify-content: center;
             }
 
+            .arrow-hide-1 {
+                margin-left: -30%;
+            }
+
             .arrow-hide {
                 display: none !important;
             }
@@ -506,7 +777,7 @@
             }
 
             .arrow-hide-4 {
-                margin-left: 20px;
+                margin-left: 25px;
             }
 
             .arrow-hide-5 {
@@ -520,11 +791,12 @@
             }
 
             .arrow-cus-1 {
+                margin-left: 5px;
                 margin-top: 60%;
             }
 
             .arrow-cus-2 {
-                margin-left: 14px;
+                margin-left: 8px;
             }
 
             .section-custume {
@@ -542,11 +814,11 @@
 
             .arrow-cus-3 {
                 margin-top: 235%;
-                margin-left: -5px
+                margin-left: -12px
             }
 
             .arrow-cus-5 {
-                margin-left: -21px;
+                margin-left: -25px;
                 margin-top: 235%;
             }
 
@@ -806,7 +1078,7 @@
 
         .custom-grid {
             position: relative;
-            width: 100%;
+            width: 120%;
             height: 650px;
         }
 
@@ -1185,7 +1457,7 @@
             }
 
             .hero-inner .mt-5.d-flex.gap-3 .btn-demo {
-                width: 48%;
+                width: 42%;
                 padding: 12px 10px;
                 font-size: 13px;
                 text-align: center;
@@ -1387,7 +1659,7 @@
 
             .image-custume-1 {
                 margin-top: 5% !important;
-                width: 165% !important;
+                width: 160% !important;
             }
 
             .image-custume-2 {
@@ -1556,9 +1828,9 @@
                 /* cách top của container */
                 left: 5%;
                 /* căn gần bên trái hình */
-                width: 63%;
+                width: 50%;
 
-                padding: 12px;
+                padding: 10px;
                 background-color: #fff;
                 border: 1px solid rgba(0, 0, 0, 0.1);
                 border-radius: 12px;
@@ -1569,36 +1841,36 @@
             }
 
             .review-card-1 {
-                top: -95px;
+                top: 3px;
                 left: 57%;
             }
 
             .review-card-2 {
-                top: 70px;
+                top: 141px;
                 /* cách card 1 khoảng 100px, điều chỉnh nếu cần */
                 left: 52%;
             }
 
             .review-card-3 {
-                top: 241px;
+                top: 303px;
                 /* cách card 2 khoảng 100px */
                 left: 50%;
-                height: 120px;
+                height: 100px;
             }
 
             .review-card .review-title {
                 font-weight: 600;
-                font-size: 14px;
+                font-size: 11px;
                 margin-bottom: 4px;
             }
 
             .review-card .review-text {
-                font-size: 13px;
+                font-size: 10px;
                 color: #333;
             }
 
             .review-card .stars {
-                font-size: 14px;
+                font-size: 10px;
                 color: #f5c518;
             }
         }
@@ -1779,7 +2051,12 @@
                                     <a href="#form-dang-ky" class="btn btn-demo shadow-sm" style="font-size:14px">Đăng
                                         kí
                                         DEMO</a>
-                                    <a href="#" class="btn btn-demo shadow-sm" style="font-size:14px">Báo giá</a>
+                                    <a href="#"
+                                        class="btn btn-demo shadow-sm d-flex align-items-center justify-content-center"
+                                        style="font-size:14px">
+                                        <span>Báo giá</span>
+                                    </a>
+
                                 </div>
                             </div>
                         </div>
@@ -1879,7 +2156,7 @@
                         <img src="./image/giai-phap-tinh-luong-toan-dien-2.webp">
                     </div>
                     <div class="process-arrow scroll-animate col-1 d-none d-md-flex">
-                        <img src="./image/giai-phap-tinh-luong-toan-dien-1.webp" class="arrow-icon ">
+                        <img src="./image/giai-phap-tinh-luong-toan-dien-1.webp" class="arrow-icon arrow-hide-1">
                     </div>
                     <div class="process-item scroll-animate ">
                         <img src="./image/giai-phap-tinh-luong-toan-dien-3.webp" class="arrow-hide-3">
@@ -2019,7 +2296,7 @@
                 <div class="col-lg-6 mb-4 mb-lg-0">
                     <div class="image-wrapper" style="position: relative; width: 100%;">
                         <img src="https://w.ladicdn.com/s1250x900/691149f809bce700133947b0/paradise-hr-27-20251112030124-8j534.png"
-                            data-anim="animate__fadeInLeft" style="width: 105%;">
+                            data-anim="animate__fadeInLeft" style="width: 114%;">
                     </div>
                 </div>
                 <div class="col-lg-6 ps-lg-5">
@@ -2091,7 +2368,7 @@
                 <div class="col-lg-6 mb-4 mb-lg-0">
                     <div class="image-wrapper" style="position: relative; width: 100%;">
                         <img src="https://w.ladicdn.com/s1100x800/691149f809bce700133947b0/paradise-hr-30-20251112061632-rvy9v.png"
-                            data-anim="animate__fadeInLeft" style="width: 105%;">
+                            data-anim="animate__fadeInLeft" style="width: 92%;">
 
 
                     </div>
@@ -2162,9 +2439,9 @@
             <div class="row align-items-center">
 
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <div class="image-wrapper" style="position: relative; width: 100%;">
+                    <div class="image-wrapper" style="position: relative; width: 120%;">
                         <img src="https://w.ladicdn.com/s1300x950/691149f809bce700133947b0/paradise-hr-33-20251112083013-3j2ar.png"
-                            data-anim="animate__fadeInLeft" class="mb-custume-1" style="width: 105%;">
+                            data-anim="animate__fadeInLeft" class="mb-custume-1" style="width: 100%;">
 
                     </div>
                 </div>
@@ -2236,9 +2513,9 @@
             <div class="row align-items-center">
 
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <div class="image-wrapper" style="position: relative; width: 100%;">
+                    <div class="image-wrapper" style="position: relative; width: 102%;">
                         <img src="https://w.ladicdn.com/s1150x850/691149f809bce700133947b0/paradise-hr-35-20251112090133-0i9nf.png"
-                            data-anim="animate__fadeInLeft" class="mb-custume" style="width:105%;">
+                            data-anim="animate__fadeInLeft" class="mb-custume" style="width:100%;">
 
                     </div>
                 </div>
@@ -2310,7 +2587,7 @@
                 <div class="col-lg-6 mb-4 mb-lg-0 order-1 order-lg-1 image-custume-2">
                     <div class="image-wrapper" style="position: relative; width: 100%;">
                         <img src="https://w.ladicdn.com/s1500x1050/691149f809bce700133947b0/paradise-hr-44-20251118072624-lrpyu.png"
-                            data-anim="animate__fadeInLeft" class="image-custume-1">
+                            data-anim="animate__fadeInLeft" class="image-custume-1" style="width: 190%;">
                     </div>
                 </div>
 
@@ -2364,10 +2641,10 @@
 
                 <div class="col-lg-6">
                     <div class="text-start mb-4">
-                        <h3 class="text-green fw-bold ladi-transition" style="font-size: 50px;">
+                        <h3 class="text-green fw-bold ladi-transition" style="font-size: 47px;">
                             Trải qua 16+ năm phát triển
                         </h3>
-                        <h3 class="text-green fw-bold ladi-transition" style="font-size: 45px;">
+                        <h3 class="text-green fw-bold ladi-transition" style="font-size: 38px;">
                             Chúng tôi đã đồng hành với hơn
                         </h3>
                     </div>
