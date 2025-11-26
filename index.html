@@ -121,7 +121,7 @@
             /* --- Review Cards (Phần điện thoại bên phải) --- */
             /* Trên tablet, đẩy các card sát vào hoặc xuống dưới */
             .phone-container {
-                left: 0;
+                left: -40% !important;
                 /* Reset vị trí */
                 width: 100%;
                 display: flex;
@@ -136,13 +136,10 @@
 
             .review-card {
                 position: relative;
-                /* Không để trôi nổi nữa */
-                top: auto !important;
-                right: auto !important;
-                left: auto !important;
+         
+              
                 animation: none;
-                /* Tắt bay nhảy để đỡ rối */
-                margin-top: 15px;
+            
                 width: 80%;
                 max-width: none;
             }
@@ -213,8 +210,8 @@
             }
 
             .custom-box {
-                padding: 15px;
-                width: 40%;
+                padding: 15px !important;
+                width: 40% !important;
                 /* Tăng width box lên chút */
             }
 
@@ -262,8 +259,8 @@
 
             /* --- Testimonials --- */
             .testimonial-box {
-                max-width: 90%;
-                       min-height: 265px !important;
+                width: 85% !important;
+                       height: auto !important;
             }
 
             /* --- Form Đăng ký --- */
@@ -400,11 +397,12 @@
         }
 
         .testimonial-box {
+            width: 65% ;
             margin-top: 1%;
             position: relative;
             overflow: hidden;
             height: auto !important;
-            width: 65% !important;
+           
             min-height: 300px;
             border-width: 5px;
             border-radius: 27px;
@@ -871,7 +869,7 @@
             }
 
             .custom-box {
-                width: 60%;
+                width: 50%;
                 aspect-ratio: 1 / 1;
                 /* giữ hình vuông */
                 padding: 15px;
@@ -1094,7 +1092,7 @@
             border-radius: 14px;
             padding: 20px 15px;
             background: #ffffff;
-            width: 32%;
+            width: 35%;
             /* to hơn */
 
             text-align: center;
@@ -1297,7 +1295,8 @@
             }
 
             .testimonial-box {
-                max-width: 65%;
+                height: 50%  !important;
+                max-width: auto !important;
             }
 
             .bottom-text {
@@ -1534,7 +1533,7 @@
                 position: static !important;
                 width: auto !important;
                 /* Thay vì 90% */
-                max-width: 60%;
+                max-width: 55%;
                 /* Giới hạn tối đa */
                 margin: 0 auto 15px auto;
                 /* Căn giữa */
@@ -1845,7 +1844,7 @@
                 font-size: 13px;
                 line-height: 1.4;
                 z-index: 10;
-                 display: flex;
+                   display: flex;
     flex-direction: column;
             }
 
@@ -2012,6 +2011,69 @@
             margin-right: auto;
             padding: 0 0;
         }
+        /* ========================================================================
+   FIX LỖI "VỪA KÉO NHỎ LÀ VỠ" (Khoảng từ 1000px đến 1600px)
+   Nguyên lý: Dùng kỹ thuật Scale/Zoom để ép nội dung nhỏ lại giữ nguyên bố cục
+   ======================================================================== */
+@media (min-width: 992px) and (max-width: 1650px) {
+    
+    /* 1. Xử lý khung bao ngoài: Ép nhỏ toàn bộ section lại */
+    .content-wrapper .row {
+        /* Bật chế độ co giãn toàn bộ nội dung bên trong */
+        /* scale(0.85) nghĩa là thu nhỏ còn 85% so với bản gốc */
+        transform: scale(0.85); 
+        
+        /* Neo vị trí co giãn ở chính giữa phía trên để không bị lệch */
+        transform-origin: top center; 
+        
+        /* Vì thu nhỏ lại nên nó sẽ hụt chiều rộng, ta bù lại bằng cách tăng width ảo */
+        /* 100% / 0.85 ~ 118% */
+        width: 118%; 
+        
+        /* Căn giữa lại sau khi tăng width */
+        margin-left: -9%; 
+    }
+
+    /* 2. Fix riêng thằng Phone Container hay bị bay lung tung */
+    .phone-container {
+        /* Reset vị trí cố định của mày để nó không bay ra khỏi khung */
+     
+        /* Bắt buộc nó nằm giữa cột của nó */
+        display: block;
+        margin: 0 auto;
+        
+        /* Dùng đơn vị vw (viewport width) để nó tự nhỏ theo chiều ngang màn hình */
+        /* Nghĩa là: Chiếm 25% chiều ngang màn hình hiện tại */
+        width: 50vw !important; 
+       
+    }
+.phone-image{
+    width: 175%
+}
+    /* 3. Fix mấy cái Card bay bay: Dùng vw cho vị trí để nó "dính" theo màn hình */
+    .review-card {
+        /* Font chữ tự nhỏ theo màn hình: 0.8% chiều ngang màn hình */
+        font-size: 0.85vw !important; 
+        padding: 1vw !important;
+        max-width: 25vw !important; /* Card rộng tối đa 18% màn hình */
+    }
+
+    /* Cập nhật lại tọa độ bằng % để nó bám chặt vào điện thoại */
+    .review-card-1 {
+        top: 0% !important;
+        right: -25% !important; /* Kéo sát vào hơn so với desktop */
+    }
+
+    .review-card-2 {
+        top: 35% !important;
+        right: -10% !important;
+    }
+
+    .review-card-3 {
+        bottom: 5% !important;
+        right: -5% !important;
+    }
+}
     </style>
 </head>
 
@@ -2125,7 +2187,7 @@
                             <div class="box-text">Giảm 90% thời gian tính lương hàng tháng</div>
                         </div>
 
-                        <div class="custom-box" style="top: 40%;left: 3%;">
+                        <div class="custom-box" style="top: 41%;left: 3%;">
                             <div class="box-title">Chính xác tuyệt đối</div>
                             <div class="box-icon"><img
                                     src="https://w.ladicdn.com/s400x400/691149f809bce700133947b0/5-20251110095059-ie_a4.png"
@@ -2133,7 +2195,7 @@
                             <div class="box-text">Loại bỏ 100% sai sót do tính toán thủ công</div>
                         </div>
 
-                        <div class="custom-box" style="top: 12%;left: 37%;">
+                        <div class="custom-box" style="top: 15%;left: 50%;">
                             <div class="box-title">Hỗ trợ 24/7 </div>
                             <div class="box-icon"><img
                                     src="https://w.ladicdn.com/s400x400/691149f809bce700133947b0/3-20251110095059-uouqu.png"
@@ -2141,7 +2203,7 @@
                             <div class="box-text">Đội ngũ chăm sóc khách hàng tận tâm</div>
                         </div>
 
-                        <div class="custom-box" style="top: 60%;left: 37%;">
+                        <div class="custom-box" style="top: 60%;left: 50%;">
                             <div class="box-title">Minh bạch tiền lương</div>
                             <div class="box-icon"><img
                                     src="https://w.ladicdn.com/s400x400/691149f809bce700133947b0/6-20251110095059-g3c7e.png"
@@ -3164,8 +3226,3 @@
 </body>
 
 </html>
-
-
-
-
-
